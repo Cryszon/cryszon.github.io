@@ -1,0 +1,115 @@
+---
+const links = [
+  {
+    target: "/",
+    text: "Home",
+  },
+  {
+    target: "",
+    text: "Events",
+  },
+  {
+    target: "",
+    text: "About",
+  },
+  {
+    target: "",
+    text: "Contact",
+  },
+];
+---
+
+<div class="min-h-lvh dark:bg-gray-900">
+  <div class="mx-auto max-w-sm">
+    <header class="mb-8">
+      <!--
+          `group` is what enables us to style other elements based on the checkbox state.
+          See https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state
+          for more info.
+        -->
+      <nav class="group relative">
+        <!--
+            Visual toggle button
+
+            `bg-emerald-500` and `z-10` hides the menu items underneath the button
+            `group-has-[:checked]:bg-emerald-400` makes the background lighter when the menu is open (checkbox checked)
+            `group-has-[input:hover]:bg-emerald-500` propagates checkbox hover state to this element
+            `h-12` must match the height of the invisible checkbox
+
+            Transition classes match the menu items' transitions.
+          -->
+        <div
+          class="relative z-10 flex h-12 items-center justify-center bg-emerald-500 transition-colors duration-300 ease-in-out group-has-[:checked]:bg-emerald-400 group-has-[input:hover]:bg-emerald-500"
+        >
+          <!-- Simple hamburger icon SVG -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#ffffff"
+              d="M3 18v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5V6h18v2H3Z"></path>
+          </svg>
+        </div>
+        <!--
+            `absolute`, `overflow-hidden` and `top-0` hides the dropdown menu at the top
+            `pointer-events-none` is required to allow text selection and opening links underneath the menu when it's hidden
+            `pb-24` is added to make the shadow visible at the bottom
+          -->
+        <div
+          class="pointer-events-none absolute top-0 w-full overflow-hidden pb-24"
+        >
+          <label class="sr-only" for="open-menu-button">
+            Open or close main navigation
+          </label>
+          <!--
+              Toggling this hidden checkbox input opens and closes the menu.
+
+              `pointer-events-auto` re-enables the pointer events disabled in the parent so that the input can be checked
+              `cursor-pointer` simulates cursor on a button
+              `w-full` makes checkbox fill the entire menu width
+              `h-12` must match the height of the visual toggle button
+              `z-10` to make the checkbox clickable over the visual button
+              `opacity-0` to visually hide the checkbox
+            -->
+          <input
+            id="open-menu-button"
+            class="pointer-events-auto absolute z-10 h-12 w-full cursor-pointer opacity-0"
+            type="checkbox"
+          />
+          <!--
+              `mt-12` must match the height of the visual toggle button
+              `-translate-y-full` moves the menu all the way to the top by default
+              `group-has-[:checked]:translate-y-0` slides the menu down when input is checked
+            -->
+          <ul
+            class="pointer-events-auto mt-12 -translate-y-full shadow-md transition-all duration-300 ease-in-out group-has-[:checked]:translate-y-0"
+          >
+            <!--
+              Nothing special here, just some simple styling. Transition and
+              colors are set to match the visual toggle button.
+            -->
+            {
+              links.map((link) => (
+                <li>
+                  <a
+                    class="block bg-emerald-400 p-3 text-center font-semibold uppercase text-gray-900 transition-colors duration-300 ease-in-out hover:bg-emerald-500 hover:text-black"
+                    href={link.target}
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <p class="dark:text-slate-100">
+      A toggleable dropdown menu in pure Tailwind CSS. No custom JS or CSS
+      required.
+    </p>
+  </div>
+</div>
