@@ -5,6 +5,8 @@ import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
 ---
 
 <PicoLayout>
-  <BreadcrumbNavigation />
-  <slot />>
+  <slot name="navigation">
+    <BreadcrumbNavigation />
+  </slot>
+  <slot />
 </PicoLayout>
