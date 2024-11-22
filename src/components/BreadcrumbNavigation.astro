@@ -1,0 +1,56 @@
+---
+import { titleCase } from "title-case";
+
+interface Segment {
+  url: string;
+  title: string;
+}
+
+interface Props {
+  /**
+   * Additional segments after "Home". Uses title cased URL segments by default.
+   */
+  additionalSegments?: Segment[];
+}
+
+let { additionalSegments } = Astro.props;
+
+let segments = [
+  {
+    title: "Home",
+    url: "/",
+  },
+];
+
+// Construct breadcrumb segments from URL if none were passed in the prop.
+if (additionalSegments === undefined) {
+  additionalSegments = [];
+
+  const urlSegments = Astro.url.pathname.split("/");
+  let currentPath = "";
+  additionalSegments = urlSegments
+    // Ignore empty segments (first segment)
+    .filter((x) => x)
+    .map((segment) => {
+      currentPath += "/" + segment;
+      return {
+        url: currentPath,
+        title: titleCase(segment),
+      };
+    });
+}
+
+segments = [...segments, ...additionalSegments];
+---
+
+<nav aria-label="breadcrumb">
+  <ul>
+    {
+      segments.map((segment) => (
+        <li>
+          <a href={segment.url}>{segment.title}</a>{" "}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
