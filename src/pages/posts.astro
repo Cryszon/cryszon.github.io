@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import PicoLayout from "../layouts/PicoLayout.astro";
-import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
+import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 
 const pageTitle = "My Astro Learning Blog";
 const allPosts = (await getCollection("posts")).sort(
@@ -9,9 +8,7 @@ const allPosts = (await getCollection("posts")).sort(
 );
 ---
 
-<PicoLayout>
-  <BreadcrumbNavigation />
-
+<DefaultPageLayout>
   <h1>Posts</h1>
 
   <p>
@@ -31,7 +28,7 @@ const allPosts = (await getCollection("posts")).sort(
       ))
     }
   </ul>
-</PicoLayout>
+</DefaultPageLayout>
 
 <style>
   .right {
