@@ -1,7 +1,3 @@
----
-layout: ../layouts/PicoLayout.astro
----
-
 # Cryszon's Website
 
 Hi! I'm Kimmo Salmela, known online as [@Cryszon](https://mastodon.social/@Cryszon) and this is my personal website where I share things that I find interesting.

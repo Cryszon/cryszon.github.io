@@ -1,0 +1,10 @@
+---
+import { getEntry } from "astro:content";
+import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
+const entry = await getEntry("pageContent", "index");
+const { Content } = await entry.render();
+---
+
+<DefaultPageLayout>
+  <Content />
+</DefaultPageLayout>
