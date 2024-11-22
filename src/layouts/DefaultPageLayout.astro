@@ -8,5 +8,17 @@ import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
   <slot name="navigation">
     <BreadcrumbNavigation />
   </slot>
+
   <slot />
+
+  <Fragment slot="footer">
+    <p>
+      <small
+        >All content &copy; Kimmo Salmela &mdash; Source on
+        <a href="https://github.com/Cryszon/cryszon.github.io">
+          GitHub</a
+        ></small
+      >
+    </p>
+  </Fragment>
 </PicoLayout>
