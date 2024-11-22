@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import PicoLayout from "../../layouts/PicoLayout.astro";
+import BreadcrumbNavigation from "../../components/BreadcrumbNavigation.astro";
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+
+export const getStaticPaths = (async () => {
+  const postEntries = await getCollection("posts");
+  return postEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<DefaultPageLayout>
+  {/* Custom navigation to use page title as segment instead of URL */}
+  <BreadcrumbNavigation
+    additionalSegments={[
+      {
+        url: "/posts",
+        title: "Posts",
+      },
+      {
+        url: entry.slug,
+        title: entry.data.title,
+      },
+    ]}
+    slot="navigation"
+  />
+
+  <h1>{entry.data.title}</h1>
+  <p>
+    <em>Published: {entry.data.datePublished.toLocaleDateString()}</em>
+    {
+      entry.data.dateUpdated && (
+        <em> | Updated: {entry.data.dateUpdated.toLocaleDateString()}</em>
+      )
+    }
+  </p>
+  <Content />
+</DefaultPageLayout>
