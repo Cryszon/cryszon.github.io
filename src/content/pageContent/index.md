@@ -14,7 +14,7 @@ written.
 
 ## My Socials
 
-- [Mastodon](https://mastodon.social/@Cryszon)
+- <a rel="me" href="https://mastodon.social/@Cryszon">Mastodon</a>
 - [GitHub](https://github.com/Cryszon)
 - [itch.io](https://cryszon.itch.io/)
 
