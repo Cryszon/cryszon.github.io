@@ -1,0 +1,10 @@
+---
+import BaseHtmlLayout from "./BaseHtmlLayout.astro";
+import "../styles/tailwind-base.css";
+
+const { title } = Astro.props;
+---
+
+<BaseHtmlLayout title={title}>
+  <slot />
+</BaseHtmlLayout>

@@ -1,0 +1,19 @@
+---
+import BaseHtmlLayout from "./BaseHtmlLayout.astro";
+
+const { title } = Astro.props;
+---
+
+<BaseHtmlLayout title={title}>
+  <Fragment slot="head">
+    <meta name="color-scheme" content="light dark" />
+  </Fragment>
+
+  <main class="container">
+    <slot />
+  </main>
+</BaseHtmlLayout>
+
+<style lang="scss" is:global>
+  @use "node_modules/@picocss/pico/scss/pico";
+</style>
