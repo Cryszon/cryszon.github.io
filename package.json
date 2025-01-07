@@ -2,6 +2,7 @@
   "name": "cryszon.github.io",
   "type": "module",
   "version": "0.0.1",
+  "author": "Kimmo Salmela <kimmo.salmela@reun.eu>",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
