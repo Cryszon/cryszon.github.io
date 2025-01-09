@@ -78,7 +78,7 @@ ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 
 See [this
-article](environment-variables-and-build-args-for-docker-compose-in-coolify)
+article](/posts/environment-variables-and-build-args-for-docker-compose-in-coolify/)
 for more information about build args with Docker Compose and this [test
 repository](https://github.com/Cryszon/coolify-build-secrets-test) for a
 deployable example.

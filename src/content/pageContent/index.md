@@ -9,7 +9,7 @@ Media](https://github.com/Reun-Media) on GitHub to see what I've made.
 
 ## Posts
 
-Check out the [posts page](/posts) for a collection of articles and notes I've
+Check out the [posts page](/posts/) for a collection of articles and notes I've
 written.
 
 ## My Socials
@@ -20,4 +20,4 @@ written.
 
 ## Frontend Snippets
 
-- [Pure Tailwind CSS dropdown navigation](/frontend-snippets/tailwind-dropdown-navigation)
+- [Pure Tailwind CSS dropdown navigation](/frontend-snippets/tailwind-dropdown-navigation/)

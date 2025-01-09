@@ -11,4 +11,5 @@ export default defineConfig({
       applyBaseStyles: false, // Prevents Tailwind conflicting with PicoCSS
     }),
   ],
+  trailingSlash: "always",
 });

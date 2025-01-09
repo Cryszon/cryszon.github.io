@@ -38,8 +38,9 @@ RUN --mount=type=secret,id=composer_auth_json,dst=/app/auth.json \
 
 > [!IMPORTANT]
 >
-> Using Coolify? Check out [this article](docker-build-secrets-in-coolify) on
-> how to use build secrets in Coolify.
+> Using Coolify? Check out [this
+> article](/posts/docker-build-secrets-in-coolify/) on how to use build secrets
+> in Coolify.
 
 ## Additional information and references
 
