@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 
-const pageTitle = "My Astro Learning Blog";
 const allPosts = (await getCollection("posts")).sort(
   (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime()
 );
