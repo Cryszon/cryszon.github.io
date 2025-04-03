@@ -5,7 +5,7 @@ Hi! I'm Kimmo Salmela, known online as [@Cryszon](https://mastodon.social/@Crysz
 I run an IT company called [Reun Media](https://reun.eu/) and I'm looking for
 remote freelance job opportunities in Europe. Check out
 [Cryszon](https://github.com/Cryszon) and [Reun
-Media](https://github.com/Reun-Media) on GitHub to see what I've made.
+Media](https://github.com/ReunMedia) on GitHub to see what I've made.
 
 ## Posts
 
