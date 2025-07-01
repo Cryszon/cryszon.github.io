@@ -3,17 +3,18 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BreadcrumbNavigation from "../../components/BreadcrumbNavigation.astro";
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import { render } from "astro:content";
 
 export const getStaticPaths = (async () => {
   const postEntries = await getCollection("posts");
-  return postEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return postEntries.map((post) => ({
+    params: { id: post.id },
+    props: { post },
   }));
 }) satisfies GetStaticPaths;
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { post: post } = Astro.props;
+const { Content } = await render(post);
 ---
 
 <DefaultPageLayout>
@@ -21,23 +22,23 @@ const { Content } = await entry.render();
   <BreadcrumbNavigation
     additionalSegments={[
       {
-        url: "/posts",
+        url: "/posts/",
         title: "Posts",
       },
       {
-        url: entry.slug,
-        title: entry.data.title,
+        url: `/posts/${post.id}/`,
+        title: post.data.title,
       },
     ]}
     slot="navigation"
   />
 
-  <h1>{entry.data.title}</h1>
+  <h1>{post.data.title}</h1>
   <p>
-    <em>Published: {entry.data.datePublished.toLocaleDateString()}</em>
+    <em>Published: {post.data.datePublished.toLocaleDateString()}</em>
     {
-      entry.data.dateUpdated && (
-        <em> | Updated: {entry.data.dateUpdated.toLocaleDateString()}</em>
+      post.data.dateUpdated && (
+        <em> | Updated: {post.data.dateUpdated.toLocaleDateString()}</em>
       )
     }
   </p>

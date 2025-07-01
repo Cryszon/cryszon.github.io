@@ -1,13 +1,14 @@
 ---
 import { getEntry } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
-const entry = await getEntry("pageContent", "index");
+import { render } from "astro:content";
+const indexContent = await getEntry("pageContent", "index");
 
-if (!entry) {
+if (!indexContent) {
   throw new Error("Could not find index page!");
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(indexContent);
 ---
 
 <DefaultPageLayout>
