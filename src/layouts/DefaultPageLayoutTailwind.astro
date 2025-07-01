@@ -1,0 +1,39 @@
+---
+import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
+import TailwindLayout from "./TailwindLayout.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<TailwindLayout>
+  <div
+    class="mx-auto max-w-[calc(var(--breakpoint-lg)+(--spacing(16)))] px-4 min-h-screen flex flex-col"
+  >
+    <slot name="navigation">
+      <BreadcrumbNavigation class="my-8" />
+    </slot>
+
+    <div class="grow">
+      <h1 class="text-7xl text-center mb-12">{title}</h1>
+      <slot />
+    </div>
+
+    <Fragment slot="footer">
+      <p class="my-8">
+        <small
+          >All content &copy; Kimmo Salmela &mdash; Source on
+          <a
+            class="underline"
+            href="https://github.com/Cryszon/cryszon.github.io"
+          >
+            GitHub</a
+          ></small
+        >
+      </p>
+    </Fragment>
+  </div>
+</TailwindLayout>

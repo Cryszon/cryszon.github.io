@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import ToolsGridItem from "../components/ToolsGridItem.astro";
+import { sortBy } from "es-toolkit";
+import DefaultPageLayoutTailwind from "../layouts/DefaultPageLayoutTailwind.astro";
+
+// TODO - Maybe sort manually instead of alphabetically?
+const tools = sortBy(await getCollection("tools"), ["id"]);
+---
+
+<DefaultPageLayoutTailwind title="Tools">
+  <p>
+    These are the tools I use (or have used) to build things. You can select
+    some of them to see how I've configured them to my liking. Feel free to
+    explore, copy and get inspired!
+  </p>
+  <div class="grid grid-cols-8 gap-4 mt-12">
+    {tools.map((tool) => <ToolsGridItem tool={tool} />)}
+  </div>
+</DefaultPageLayoutTailwind>

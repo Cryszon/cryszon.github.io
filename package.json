@@ -18,13 +18,15 @@
     "@reunmedia/astro-normalize-trailing-slash": "^0.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.2",
+    "astro-icon": "^1.1.5",
     "date-fns": "^4.1.0",
-    "es-toolkit": "^1.39.6",
+    "es-toolkit": "^1.39.5",
     "sass": "^1.89.2",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@iconify-json/devicon-plain": "^1.2.29",
     "@reunmedia/eslint-config": "^1.6.0",
     "concurrently": "^9.2.0",
     "eslint": "^9.30.1",

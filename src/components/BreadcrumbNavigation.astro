@@ -12,13 +12,14 @@ interface Props {
    * Additional segments after "Home". Uses title cased URL segments by default.
    */
   additionalSegments?: Segment[];
+  class?: string | undefined;
 }
 
-let { additionalSegments } = Astro.props;
+let { additionalSegments, class: className } = Astro.props;
 
 let segments = [
   {
-    title: "Home",
+    title: "home",
     url: "/",
   },
 ];

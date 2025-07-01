@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  tool: CollectionEntry<"tools">;
+}
+
+const { tool } = Astro.props;
+
+const Element = tool.body ? "a" : "span";
+const elProps = tool.body
+  ? { href: `/tools/${tool.id}/`, class: "underline" }
+  : {};
+---
+
+<div>
+  <Element {...elProps}>
+    <Icon class="mx-auto w-16 h-16" name={tool.data.icon} />
+    <span class="block pt-4 text-center">
+      {tool.data.title}
+    </span>
+  </Element>
+</div>

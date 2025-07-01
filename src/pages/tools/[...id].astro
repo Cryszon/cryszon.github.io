@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import DefaultPageLayoutTailwind from "../../layouts/DefaultPageLayoutTailwind.astro";
+
+export const getStaticPaths = (async () => {
+  const tools = await getCollection("tools");
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}) satisfies GetStaticPaths;
+
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+---
+
+<DefaultPageLayoutTailwind title={tool.data.title}>
+  <p class="mb-4">
+    <em>Published: {tool.data.datePublished.toLocaleDateString()}</em>
+    {
+      tool.data.dateUpdated && (
+        <em> | Updated: {tool.data.dateUpdated.toLocaleDateString()}</em>
+      )
+    }
+  </p>
+  <Content />
+</DefaultPageLayoutTailwind>
