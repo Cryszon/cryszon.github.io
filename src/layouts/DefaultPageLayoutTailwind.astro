@@ -11,7 +11,7 @@ const { title } = Astro.props;
 
 <TailwindLayout>
   <div
-    class="mx-auto max-w-[calc(var(--breakpoint-lg)+(--spacing(16)))] px-4 min-h-screen flex flex-col"
+    class="mx-auto box-content max-w-(--breakpoint-lg) px-4 min-h-screen flex flex-col"
   >
     <slot name="navigation">
       <BreadcrumbNavigation class="my-8" />
