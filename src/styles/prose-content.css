@@ -23,7 +23,7 @@
     h4,
     h5,
     h6 {
-      @apply text-theme-primary mt-8 first:mt-0;
+      @apply text-theme-primary mt-12 first:mt-0;
     }
 
     h1 {
@@ -41,8 +41,16 @@
     ul,
     ol {
       li {
-        @apply ml-8 list-disc;
+        @apply mt-2 ml-8 first:mt-0;
       }
+    }
+
+    ul li {
+      @apply list-disc;
+    }
+
+    ol li {
+      @apply list-decimal;
     }
 
     a {
