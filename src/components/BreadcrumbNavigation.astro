@@ -1,4 +1,6 @@
 ---
+import { startCase } from "es-toolkit";
+
 interface Segment {
   url: string;
   title: string;
@@ -15,7 +17,7 @@ let { additionalSegments } = Astro.props;
 
 let segments = [
   {
-    title: "home",
+    title: "Home",
     url: "/",
   },
 ];
@@ -33,7 +35,7 @@ if (additionalSegments === undefined) {
       currentPath += segment + "/";
       return {
         url: currentPath,
-        title: segment,
+        title: startCase(segment),
       };
     });
 }
