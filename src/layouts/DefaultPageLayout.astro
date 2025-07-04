@@ -1,9 +1,9 @@
 ---
-import TailwindLayout from "../layouts/TailwindLayout.astro";
 import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
+import BaseHtmlLayout from "./BaseHtmlLayout.astro";
 ---
 
-<TailwindLayout>
+<BaseHtmlLayout>
   <div
     class="mx-auto box-content max-w-(--breakpoint-lg) px-4 min-h-screen flex flex-col"
   >
@@ -26,4 +26,4 @@ import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
       </p>
     </Fragment>
   </div>
-</TailwindLayout>
+</BaseHtmlLayout>
