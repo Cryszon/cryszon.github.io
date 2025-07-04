@@ -1,0 +1,24 @@
+@theme {
+  --breakpoint-lg: 60rem; /* 960px */
+}
+
+@theme inline {
+  /*
+   * Theme colors
+   */
+  --color-theme-primary: var(--color-theme-primary);
+  --color-theme-light: var(--color-theme-light);
+  --color-theme-dark: var(--color-theme-dark);
+}
+
+.theme-orange {
+  --color-theme-primary: #f46f1b;
+  --color-theme-dark: #090d14;
+  --color-theme-light: #dfd8eb;
+}
+
+.theme-blue {
+  --color-theme-primary: #16c6da;
+  --color-theme-dark: #090d14;
+  --color-theme-light: #dfd8eb;
+}

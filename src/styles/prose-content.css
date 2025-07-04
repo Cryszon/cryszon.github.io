@@ -1,0 +1,64 @@
+@layer components {
+  .prose-content {
+    @apply text-theme-dark dark:text-theme-light;
+
+    /* Apply reasonable top margins to elements for separation */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ol,
+    ul,
+    pre,
+    blockquote {
+      @apply mt-4 first:mt-0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-theme-primary mt-8 first:mt-0;
+    }
+
+    h1 {
+      @apply mb-12 text-center text-6xl;
+    }
+
+    h2 {
+      @apply text-4xl;
+    }
+
+    h3 {
+      @apply text-2xl;
+    }
+
+    ul,
+    ol {
+      li {
+        @apply ml-8 list-disc;
+      }
+    }
+
+    a {
+      @apply underline;
+    }
+
+    blockquote {
+      @apply border-theme-primary/25 border-l-3 p-6;
+    }
+
+    pre {
+      @apply rounded-md p-4;
+    }
+
+    :not(pre) code {
+      @apply rounded-md bg-gray-200/25 p-1 dark:bg-gray-800/25;
+    }
+  }
+}
