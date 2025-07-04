@@ -9,10 +9,9 @@ interface Props {
    * Additional segments after "Home". Uses title cased URL segments by default.
    */
   additionalSegments?: Segment[];
-  class?: string | undefined;
 }
 
-let { additionalSegments, class: className } = Astro.props;
+let { additionalSegments } = Astro.props;
 
 let segments = [
   {
@@ -42,7 +41,7 @@ if (additionalSegments === undefined) {
 segments = [...segments, ...additionalSegments];
 ---
 
-<nav aria-label="breadcrumb" class={className}>
+<nav aria-label="breadcrumb" class="my-8">
   <ul class="flex list-['/']">
     {
       segments.map((segment) => (

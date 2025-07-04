@@ -33,14 +33,16 @@ const { Content } = await render(post);
     slot="navigation"
   />
 
-  <h1>{post.data.title}</h1>
-  <p>
-    <em>Published: {post.data.datePublished.toLocaleDateString()}</em>
-    {
-      post.data.dateUpdated && (
-        <em> | Updated: {post.data.dateUpdated.toLocaleDateString()}</em>
-      )
-    }
-  </p>
-  <Content />
+  <div class="prose-content">
+    <h1>{post.data.title}</h1>
+    <p>
+      <em>Published: {post.data.datePublished.toLocaleDateString()}</em>
+      {
+        post.data.dateUpdated && (
+          <em> | Updated: {post.data.dateUpdated.toLocaleDateString()}</em>
+        )
+      }
+    </p>
+    <Content />
+  </div>
 </DefaultPageLayout>

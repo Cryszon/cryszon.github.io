@@ -8,25 +8,27 @@ const allPosts = (await getCollection("posts")).sort(
 ---
 
 <DefaultPageLayout>
-  <h1>Posts</h1>
+  <div class="prose-content">
+    <h1>Posts</h1>
 
-  <p>
-    Here's a collection of articles, instructions, notes and other random things
-    I've written.
-  </p>
+    <p>
+      Here's a collection of articles, instructions, notes and other random
+      things I've written.
+    </p>
 
-  <ul>
-    {
-      allPosts.map((post) => (
-        <li>
-          <a href={"/posts/" + post.id + "/"}>{post.data.title}</a>{" "}
-          <small class="right">
-            <em> {post.data.datePublished.toLocaleDateString()}</em>
-          </small>
-        </li>
-      ))
-    }
-  </ul>
+    <ul>
+      {
+        allPosts.map((post) => (
+          <li>
+            <a href={"/posts/" + post.id + "/"}>{post.data.title}</a>{" "}
+            <small class="right">
+              <em> {post.data.datePublished.toLocaleDateString()}</em>
+            </small>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </DefaultPageLayout>
 
 <style>

@@ -1,23 +1,29 @@
 ---
-import PicoLayout from "../layouts/PicoLayout.astro";
+import TailwindLayout from "../layouts/TailwindLayout.astro";
 import BreadcrumbNavigation from "../components/BreadcrumbNavigation.astro";
 ---
 
-<PicoLayout>
-  <slot name="navigation">
-    <BreadcrumbNavigation />
-  </slot>
+<TailwindLayout>
+  <div
+    class="mx-auto box-content max-w-(--breakpoint-lg) px-4 min-h-screen flex flex-col"
+  >
+    <slot name="navigation">
+      <BreadcrumbNavigation />
+    </slot>
 
-  <slot />
+    <div class="grow">
+      <slot />
+    </div>
 
-  <Fragment slot="footer">
-    <p>
-      <small
-        >All content &copy; Kimmo Salmela &mdash; Source on
-        <a href="https://github.com/Cryszon/cryszon.github.io">
-          GitHub</a
-        ></small
-      >
-    </p>
-  </Fragment>
-</PicoLayout>
+    <Fragment slot="footer">
+      <p class="my-8 prose-content">
+        <small
+          >All content &copy; Kimmo Salmela &mdash; Source on
+          <a href="https://github.com/Cryszon/cryszon.github.io">
+            GitHub</a
+          ></small
+        >
+      </p>
+    </Fragment>
+  </div>
+</TailwindLayout>
