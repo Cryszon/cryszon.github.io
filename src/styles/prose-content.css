@@ -2,6 +2,8 @@
   .prose-content {
     @apply text-theme-dark dark:text-theme-light;
 
+    @apply text-lg;
+
     /* Apply reasonable top margins to elements for separation */
     h1,
     h2,
