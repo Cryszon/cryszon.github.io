@@ -1,6 +1,4 @@
 ---
-import { titleCase } from "title-case";
-
 interface Segment {
   url: string;
   title: string;
@@ -11,13 +9,14 @@ interface Props {
    * Additional segments after "Home". Uses title cased URL segments by default.
    */
   additionalSegments?: Segment[];
+  class?: string | undefined;
 }
 
-let { additionalSegments } = Astro.props;
+let { additionalSegments, class: className } = Astro.props;
 
 let segments = [
   {
-    title: "Home",
+    title: "home",
     url: "/",
   },
 ];
@@ -27,15 +26,15 @@ if (additionalSegments === undefined) {
   additionalSegments = [];
 
   const urlSegments = Astro.url.pathname.split("/");
-  let currentPath = "";
+  let currentPath = "/";
   additionalSegments = urlSegments
     // Ignore empty segments (first segment)
     .filter((x) => x)
     .map((segment) => {
-      currentPath += "/" + segment;
+      currentPath += segment + "/";
       return {
         url: currentPath,
-        title: titleCase(segment),
+        title: segment,
       };
     });
 }
@@ -43,11 +42,11 @@ if (additionalSegments === undefined) {
 segments = [...segments, ...additionalSegments];
 ---
 
-<nav aria-label="breadcrumb">
-  <ul>
+<nav aria-label="breadcrumb" class={className}>
+  <ul class="flex list-['/']">
     {
       segments.map((segment) => (
-        <li>
+        <li class="ml-4 pl-2">
           <a href={segment.url}>{segment.title}</a>{" "}
         </li>
       ))
