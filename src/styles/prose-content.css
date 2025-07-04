@@ -46,7 +46,7 @@
     }
 
     ul li {
-      @apply list-disc;
+      @apply list-[square];
     }
 
     ol li {
