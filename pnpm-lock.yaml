@@ -11,6 +11,12 @@ importers:
       '@astrojs/check':
         specifier: ^0.9.4
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)
+      '@fontsource/cascadia-code':
+        specifier: ^5.2.2
+        version: 5.2.2
+      '@fontsource/mulish':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@tailwindcss/vite':
         specifier: ^4.1.11
         version: 4.1.11(vite@6.3.5(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
@@ -293,6 +299,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/cascadia-code@5.2.2':
+    resolution: {integrity: sha512-snTU9kuaH7N7QUySXF5/hGDwrxnkkwow3hi9IMnck+fxtc+5ZMj7dNPZZ8kvsiygA0Vn+uFuexkqckm1o1ilPg==}
+
+  '@fontsource/mulish@5.2.6':
+    resolution: {integrity: sha512-5fGU/WT3vvpdYEqmAf0ufmoacpFTkXmvaIQ/rKvXTW9p39+Y5HlZAcHQOm/mVVb+xUUV+d9Djzlhr+pJtSDJhg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2817,6 +2829,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.5':
     optional: true
+
+  '@fontsource/cascadia-code@5.2.2': {}
+
+  '@fontsource/mulish@5.2.6': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

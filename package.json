@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@fontsource/cascadia-code": "^5.2.2",
+    "@fontsource/mulish": "^5.2.6",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.2",
     "es-toolkit": "^1.39.6",

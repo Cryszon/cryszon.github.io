@@ -1,5 +1,9 @@
 @theme {
   --breakpoint-lg: 60rem; /* 960px */
+
+  --default-font-family: "Mulish";
+  --default-mono-font-family: "Cascadia Code";
+  --font-display: var(--default-mono-font-family, var(--font-sans));
 }
 
 @theme inline {
