@@ -16,6 +16,7 @@ written.
 
 - <a rel="me" href="https://mastodon.social/@Cryszon">Mastodon</a>
 - [GitHub](https://github.com/Cryszon)
+- [LinkedIn](www.linkedin.com/in/kimmo-salmela-073b9b359)
 - [itch.io](https://cryszon.itch.io/)
 
 ## Frontend Snippets
