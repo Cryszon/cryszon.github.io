@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import BreadcrumbNavigation from "../../components/BreadcrumbNavigation.astro";
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import { render } from "astro:content";
+import { format } from "date-fns";
 
 export const getStaticPaths = (async () => {
   const postEntries = await getCollection("posts");
@@ -36,10 +37,10 @@ const { Content } = await render(post);
   <div class="prose-content">
     <h1>{post.data.title}</h1>
     <p>
-      <em>Published: {post.data.datePublished.toLocaleDateString()}</em>
+      <em>Published: {format(post.data.datePublished, "yyyy-MM-dd")}</em>
       {
         post.data.dateUpdated && (
-          <em> | Updated: {post.data.dateUpdated.toLocaleDateString()}</em>
+          <em> | Updated: {format(post.data.dateUpdated, "yyyy-MM-dd")}</em>
         )
       }
     </p>

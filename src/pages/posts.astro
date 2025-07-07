@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
+import { format } from "date-fns";
 
 const allPosts = (await getCollection("posts")).sort(
   (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime(),
@@ -22,7 +23,7 @@ const allPosts = (await getCollection("posts")).sort(
           <li>
             <a href={"/posts/" + post.id + "/"}>{post.data.title}</a>{" "}
             <small class="right">
-              <em> {post.data.datePublished.toLocaleDateString()}</em>
+              <em>{format(post.data.datePublished, "yyyy-MM-dd")}</em>
             </small>
           </li>
         ))
