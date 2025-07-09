@@ -18,7 +18,7 @@ const { post: post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<DefaultPageLayout>
+<DefaultPageLayout title={post.data.title}>
   {/* Custom navigation to use page title as segment instead of URL */}
   <BreadcrumbNavigation
     additionalSegments={[

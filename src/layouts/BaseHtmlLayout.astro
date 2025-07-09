@@ -3,7 +3,28 @@ import "../styles/tailwind-base.css";
 import "@fontsource/cascadia-code";
 import "@fontsource/mulish";
 
-const { title } = Astro.props;
+export interface Props {
+  /**
+   * Title template. `%s` is replaced with {@link title}. E.g.
+   * `%s - My Website`.
+   */
+  titleTemplate?: string;
+  /**
+   * Title used in {@link titleTemplate}.
+   */
+  title?: string;
+  /**
+   * If no title is given, default title is used instead of
+   * {@link titleTemplate}.
+   */
+  defaultTitle?: string;
+}
+
+const {
+  title,
+  titleTemplate = "%s - Cryszon's Website",
+  defaultTitle = "Cryszon's Website",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +33,7 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>{title}</title>
+    <title>{title ? titleTemplate.replace("%s", title) : defaultTitle}</title>
     <slot name="head" />
   </head>
   <body class="bg-theme-light dark:bg-theme-dark">
