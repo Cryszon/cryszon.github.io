@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import { format } from "date-fns";
+import { normalizeTrailingSlash } from "@reunmedia/astro-normalize-trailing-slash";
 
 const allPosts = (await getCollection("posts")).sort(
   (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime(),
@@ -21,7 +22,9 @@ const allPosts = (await getCollection("posts")).sort(
       {
         allPosts.map((post) => (
           <li>
-            <a href={"/posts/" + post.id + "/"}>{post.data.title}</a>{" "}
+            <a href={normalizeTrailingSlash("/posts/" + post.id)}>
+              {post.data.title}
+            </a>{" "}
             <small class="right">
               <em>{format(post.data.datePublished, "yyyy-MM-dd")}</em>
             </small>

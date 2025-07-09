@@ -15,6 +15,7 @@
     "@astrojs/check": "^0.9.4",
     "@fontsource/cascadia-code": "^5.2.2",
     "@fontsource/mulish": "^5.2.6",
+    "@reunmedia/astro-normalize-trailing-slash": "^0.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.2",
     "date-fns": "^4.1.0",

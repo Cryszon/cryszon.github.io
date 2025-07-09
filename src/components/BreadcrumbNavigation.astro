@@ -1,4 +1,5 @@
 ---
+import { normalizeTrailingSlash } from "@reunmedia/astro-normalize-trailing-slash";
 import { startCase } from "es-toolkit";
 
 interface Segment {
@@ -48,7 +49,7 @@ segments = [...segments, ...additionalSegments];
     {
       segments.map((segment) => (
         <li class="ml-4 pl-2">
-          <a href={segment.url}>{segment.title}</a>{" "}
+          <a href={normalizeTrailingSlash(segment.url)}>{segment.title}</a>{" "}
         </li>
       ))
     }

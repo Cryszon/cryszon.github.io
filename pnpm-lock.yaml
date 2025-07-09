@@ -17,6 +17,9 @@ importers:
       '@fontsource/mulish':
         specifier: ^5.2.6
         version: 5.2.6
+      '@reunmedia/astro-normalize-trailing-slash':
+        specifier: ^0.1.0
+        version: 0.1.0(astro@5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(typescript@5.8.3)
       '@tailwindcss/vite':
         specifier: ^4.1.11
         version: 4.1.11(vite@6.3.5(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
@@ -531,6 +534,12 @@ packages:
   '@pkgr/core@0.2.7':
     resolution: {integrity: sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@reunmedia/astro-normalize-trailing-slash@0.1.0':
+    resolution: {integrity: sha512-JZxFsfLv74c+bM+/icMfGundM0q0f8A8Q69pV6mPCzplMsG+MLyxUVd/C10izXHzi81nNEVecz6QKneFHUsAfg==}
+    peerDependencies:
+      astro: ^5.11.0
+      typescript: ^5.8.3
 
   '@rollup/pluginutils@5.2.0':
     resolution: {integrity: sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw==}
@@ -3009,6 +3018,11 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.2.7': {}
+
+  '@reunmedia/astro-normalize-trailing-slash@0.1.0(astro@5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(typescript@5.8.3)':
+    dependencies:
+      astro: 5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
+      typescript: 5.8.3
 
   '@rollup/pluginutils@5.2.0(rollup@4.44.1)':
     dependencies:
