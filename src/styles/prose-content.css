@@ -1,6 +1,6 @@
 @layer components {
   .prose-content {
-    @apply text-theme-dark dark:text-theme-light;
+    @apply text-theme-text;
 
     /* Apply reasonable top margins to elements for separation */
     h1,
