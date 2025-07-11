@@ -30,7 +30,7 @@ secrets:
     environment: COMPOSER_AUTH_JSON
 ```
 
-```Dockerfile
+```dockerfile
 # Dockerfile
 RUN --mount=type=secret,id=composer_auth_json,dst=/app/auth.json \
     composer install --no-autoloader --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts

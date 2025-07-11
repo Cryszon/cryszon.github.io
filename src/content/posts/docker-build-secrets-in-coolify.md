@@ -43,7 +43,7 @@ secrets:
     environment: TEST_SECRET
 ```
 
-```Dockerfile
+```dockerfile
 # Dockerfile
 FROM alpine:latest
 
@@ -65,7 +65,7 @@ services:
         - TEST_SECRET
 ```
 
-```Dockerfile
+```dockerfile
 # Dockerfile
 FROM alpine:latest
 
