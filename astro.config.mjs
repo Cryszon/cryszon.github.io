@@ -10,10 +10,8 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://cryszon.github.io",
   trailingSlash: "always",
-  integrations: [normalizeTrailingSlash()],
+  integrations: [normalizeTrailingSlash(), icon()],
   vite: {
     plugins: [tailwindcss()],
   },
-
-  integrations: [icon()],
 });
