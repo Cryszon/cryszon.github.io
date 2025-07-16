@@ -1,4 +1,8 @@
-# Fix ESLint in VS Code
-# See https://github.com/ReunMedia/eslint-config/blob/main/README.md#eslint-works-in-terminal-but-not-in-vs-code
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+
 publicHoistPattern:
-  - "*eslint*"
+  - '*eslint*'
