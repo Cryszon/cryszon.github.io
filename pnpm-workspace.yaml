@@ -1,0 +1,4 @@
+# Fix ESLint in VS Code
+# See https://github.com/ReunMedia/eslint-config/blob/main/README.md#eslint-works-in-terminal-but-not-in-vs-code
+publicHoistPattern:
+  - "*eslint*"
