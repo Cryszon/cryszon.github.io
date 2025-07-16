@@ -14,7 +14,9 @@
     ul,
     pre,
     blockquote {
-      @apply mt-4 first:mt-0;
+      &:not(.not-prose-content &) {
+        @apply mt-4 first:mt-0;
+      }
     }
 
     h1,
@@ -23,50 +25,72 @@
     h4,
     h5,
     h6 {
-      @apply text-theme-primary font-display mt-12 first:mt-0;
+      &:not(.not-prose-content &) {
+        @apply text-theme-primary font-display mt-12 first:mt-0;
+      }
     }
 
     h1 {
-      @apply mb-12 text-center text-6xl;
+      &:not(.not-prose-content &) {
+        @apply mb-12 text-center text-6xl;
+      }
     }
 
     h2 {
-      @apply text-4xl;
+      &:not(.not-prose-content &) {
+        @apply text-4xl;
+      }
     }
 
     h3 {
-      @apply text-2xl;
+      &:not(.not-prose-content &) {
+        @apply text-2xl;
+      }
     }
 
     ul,
     ol {
       li {
-        @apply mt-2 ml-8 first:mt-0;
+        &:not(.not-prose-content &) {
+          @apply mt-2 ml-8 first:mt-0;
+        }
       }
     }
 
     ul li {
-      @apply list-[square];
+      &:not(.not-prose-content &) {
+        @apply list-[square];
+      }
     }
 
     ol li {
-      @apply list-decimal;
+      &:not(.not-prose-content &) {
+        @apply list-decimal;
+      }
     }
 
     a {
-      @apply underline;
+      &:not(.not-prose-content &) {
+        @apply underline;
+      }
     }
 
     blockquote {
-      @apply border-theme-primary/25 border-l-3 p-6;
+      &:not(.not-prose-content &) {
+        @apply border-theme-primary/25 border-l-3 p-6;
+      }
     }
 
     pre {
-      @apply rounded-md p-4;
+      &:not(.not-prose-content &) {
+        @apply rounded-md p-4;
+      }
     }
 
     :not(pre) code {
-      @apply rounded-md bg-gray-200/25 p-1 dark:bg-gray-800/25;
+      &:not(.not-prose-content &) {
+        @apply rounded-md bg-gray-200/25 p-1 dark:bg-gray-800/25;
+      }
     }
   }
 }
