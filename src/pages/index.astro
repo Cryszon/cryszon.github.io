@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import { render } from "astro:content";
+import TextCard from "../components/TextCard.astro";
 const indexContent = await getEntry("pageContent", "index");
 
 if (!indexContent) {
@@ -14,5 +15,10 @@ const { Content } = await render(indexContent);
 <DefaultPageLayout>
   <div class="prose-content">
     <Content />
+    <div class="not-prose-content">
+      <div class="my-16 grid grid-cols-3">
+        <TextCard title="Posts" />
+      </div>
+    </div>
   </div>
 </DefaultPageLayout>
