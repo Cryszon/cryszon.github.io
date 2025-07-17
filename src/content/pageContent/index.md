@@ -12,6 +12,10 @@ Media](https://github.com/ReunMedia) on GitHub to see what I've made.
 Check out the [posts page](/posts/) for a collection of articles and notes I've
 written.
 
+## Tools
+
+[Tools](/tools/) I use to build things.
+
 ## My Socials
 
 - <a rel="me" href="https://mastodon.social/@Cryszon">Mastodon</a>
