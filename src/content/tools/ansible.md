@@ -1,9 +1,10 @@
 ---
-title: Vue.js
-icon: devicon-plain:vuejs
-datePublished: 2025-07-01
+title: Ansible
+icon: devicon-plain:ansible
+datePublished: 2025-07-17
 tags: ["front-end", "frameworks"]
 links:
   github: https://github.com/vuejs/core
   website: http://vuejs.org/
+inToolbox: previous
 ---

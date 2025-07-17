@@ -29,6 +29,7 @@ const tools = defineCollection({
      * Any installed icon supported by `astro-icon`
      */
     icon: z.string(),
+    inToolbox: z.enum(["active", "previous"]).default("active"),
   }),
 });
 

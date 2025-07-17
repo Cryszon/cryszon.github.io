@@ -6,18 +6,45 @@ import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 
 // TODO - Maybe sort manually instead of alphabetically?
 const tools = sortBy(await getCollection("tools"), ["id"]);
+
+const currentTools = tools.filter((x) => x.data.inToolbox == "active");
+const previousTools = tools.filter((x) => x.data.inToolbox == "previous");
 ---
 
 <DefaultPageLayout title="Tools">
   <div class="prose-content">
     <h1>Tools</h1>
+    <h2>Current toolkit</h2>
     <p>
-      These are the tools I use (or have used) to build things. You can select
-      some of them to see how I've configured them to my liking. Feel free to
-      explore, copy and get inspired!
+      These are the tools I actively use (or have used) to build things. You can
+      select some of them to see how I've configured them to my liking. Feel
+      free to explore, copy and get inspired!
     </p>
     <div class="grid grid-cols-8 gap-4 mt-16">
-      {tools.map((tool) => <ToolsGridItem tool={tool} />)}
+      {currentTools.map((tool) => <ToolsGridItem tool={tool} />)}
+    </div>
+    <div class="mt-16">
+      <h2>Previously used</h2>
+      <p>
+        These are tools I've used previously, but are not in active use for some
+        reason. I've listed them here for historical purposes. Maybe some of
+        them will return to my toolbox in the future.
+      </p>
+      <ul class="not-prose-content mt-8 divide-x">
+        {
+          previousTools.map((tool) => (
+            <li class="inline-block px-2">
+              {tool.body ? (
+                <a class="underline" href={`/tools/${tool.id}/`}>
+                  {tool.data.title}
+                </a>
+              ) : (
+                <span>{tool.data.title}</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </DefaultPageLayout>
