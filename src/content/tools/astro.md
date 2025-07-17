@@ -1,6 +1,6 @@
 ---
 title: Astro
-icon: devicon-plain:astro
+icon: simple-icons:astro
 datePublished: 2025-07-01
 tags: ["front-end", "frameworks"]
 ---

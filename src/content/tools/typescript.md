@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-icon: devicon-plain:typescript
+icon: simple-icons:typescript
 datePublished: 2025-07-01
 tags: ["front-end", "frameworks"]
 links:

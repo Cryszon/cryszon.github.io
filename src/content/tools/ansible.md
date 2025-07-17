@@ -1,6 +1,6 @@
 ---
 title: Ansible
-icon: devicon-plain:ansible
+icon: simple-icons:ansible
 datePublished: 2025-07-17
 tags: ["front-end", "frameworks"]
 links:

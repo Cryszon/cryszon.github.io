@@ -1,6 +1,6 @@
 ---
 title: React
-icon: devicon-plain:vuejs
+icon: simple-icons:react
 datePublished: 2025-07-17
 tags: ["front-end", "frameworks"]
 links:

@@ -1,6 +1,6 @@
 ---
 title: GraphQL
-icon: devicon-plain:graphql
+icon: simple-icons:graphql
 datePublished: 2025-07-17
 tags: ["technologies"]
 links:

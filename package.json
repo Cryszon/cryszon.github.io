@@ -26,7 +26,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@iconify-json/devicon-plain": "^1.2.29",
+    "@iconify-json/simple-icons": "^1.2.43",
     "@reunmedia/eslint-config": "^1.6.0",
     "concurrently": "^9.2.0",
     "eslint": "^9.30.1",

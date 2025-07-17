@@ -1,6 +1,6 @@
 ---
 title: Vue.js
-icon: devicon-plain:vuejs
+icon: simple-icons:vuedotjs
 datePublished: 2025-07-01
 tags: ["front-end", "frameworks"]
 links:

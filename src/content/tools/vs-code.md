@@ -1,6 +1,6 @@
 ---
 title: VS Code
-icon: devicon-plain:vscode
+icon: simple-icons:visualstudiocode
 datePublished: 2025-07-01
 tags: ["editors"]
 ---
