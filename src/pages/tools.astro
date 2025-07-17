@@ -16,7 +16,7 @@ const tools = sortBy(await getCollection("tools"), ["id"]);
       some of them to see how I've configured them to my liking. Feel free to
       explore, copy and get inspired!
     </p>
-    <div class="grid grid-cols-8 gap-4 mt-12">
+    <div class="grid grid-cols-8 gap-4 mt-16">
       {tools.map((tool) => <ToolsGridItem tool={tool} />)}
     </div>
   </div>
