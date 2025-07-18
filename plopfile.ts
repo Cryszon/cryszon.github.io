@@ -33,6 +33,18 @@ export default function (plop: NodePlopAPI) {
         message: "Website link",
       },
       {
+        type: "input",
+        name: "tags",
+        message: "Tags (comma separated)",
+        validate: (x: string) => x.length > 0 || "At least one tag is required",
+        filter: (input: string) => {
+          if (!input) {
+            return input;
+          }
+          return `[${input.toLowerCase()}]`;
+        },
+      },
+      {
         type: "list",
         name: "inToolbox",
         choices: ["yes", "no"],
