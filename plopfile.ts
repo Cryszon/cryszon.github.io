@@ -1,4 +1,8 @@
+import type { z } from "astro:content";
 import type { NodePlopAPI } from "plop";
+import type { collections } from "./src/content.config";
+import type { OrReturnType } from "./src/types/utils";
+import { kebabCase } from "es-toolkit";
 
 export default function (plop: NodePlopAPI) {
   plop.setGenerator("tool", {
@@ -14,6 +18,9 @@ export default function (plop: NodePlopAPI) {
         name: "icon",
         message:
           "Icon for the tool from https://icones.js.org/collection/simple-icons",
+        default: (answers: { title: string }) => {
+          return "simple-icons:" + kebabCase(answers.title);
+        },
       },
       {
         type: "input",
@@ -24,6 +31,36 @@ export default function (plop: NodePlopAPI) {
         type: "input",
         name: "links.website",
         message: "Website link",
+      },
+      {
+        type: "list",
+        name: "inToolbox",
+        choices: ["yes", "no"],
+        message: "Are you currently using this tool?",
+        filter: (input: string) => {
+          // The following code ensures that `yes` and `no` responses map to
+          // valid `inToolbox` values for the tools content schema. It's by no
+          // means necessary as Astro validates the schema anyway, but it was a
+          // decent learning exercise.
+          const inputMap = {
+            yes: "active",
+            no: "previous",
+          } as const satisfies Record<
+            // Use `yes` and `no` choices as keys
+            "yes" | "no",
+            // Infer valid `inToolbox` values from Astro content collection
+            // schema. Content collection schema can be either a method, an
+            // object literal or undefined so we use a combination of
+            // NonNullable and OrReturnType to make sure we only get the object
+            // schema.
+            z.infer<
+              OrReturnType<NonNullable<typeof collections.tools.schema>>
+            >["inToolbox"]
+          >;
+          return input in inputMap
+            ? inputMap[input as keyof typeof inputMap]
+            : "yes";
+        },
       },
     ],
     actions: [
