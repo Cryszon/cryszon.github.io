@@ -6,4 +6,5 @@ tags: ["front-end", "frameworks"]
 links:
   github: https://github.com/vuejs/core
   website: http://vuejs.org/
+inToolbox: active
 ---

@@ -6,6 +6,7 @@ tags: ["front-end", "frameworks"]
 links:
   github: https://github.com/microsoft/TypeScript
   website: https://www.typescriptlang.org/
+inToolbox: active
 ---
 
 Anyone who's writing JavaScript today should be writing TypeScript. With
