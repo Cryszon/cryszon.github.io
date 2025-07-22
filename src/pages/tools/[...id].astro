@@ -4,6 +4,9 @@ import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import { Icon } from "astro-icon/components";
+import BaseCard from "../../components/BaseCard.astro";
+import LinkOrText from "../../components/LinkOrText.astro";
+import { format } from "date-fns";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -15,11 +18,42 @@ export const getStaticPaths = (async () => {
 
 const { tool } = Astro.props;
 const { Content } = await render(tool);
+
+interface InfoBoxListItem {
+  icon?: string;
+  text?: string;
+  link?: string;
+}
+
+const infoBoxListItems: InfoBoxListItem[] = [
+  {
+    icon: "heroicons:clock",
+    text: `Published ${format(tool.data.datePublished, "yyyy-MM-dd")}`,
+  },
+  {
+    icon: "heroicons:clock",
+    text: tool.data.dateUpdated
+      ? `Updated ${format(tool.data.dateUpdated, "yyyy-MM-dd")}`
+      : "",
+  },
+  {
+    icon: "simple-icons:github",
+    text: tool.data.links.github ? "GitHub" : "",
+    link: tool.data.links.github,
+  },
+  {
+    icon: "mynaui/globe",
+    text: tool.data.links.website ? "Website" : "",
+    link: tool.data.links.website,
+  },
+];
 ---
 
 <DefaultPageLayout title={tool.data.title}>
-  <div class="prose-content">
-    <h1>{tool.data.title}</h1>
+  <div>
+    <span class="prose-content">
+      <h1>{tool.data.title}</h1>
+    </span>
     <Icon class="mx-auto -mt-4 w-16 h-16" name={tool.data.icon} />
     <p class="mb-4">
       <em>Published: {tool.data.datePublished.toLocaleDateString()}</em>
@@ -29,6 +63,33 @@ const { Content } = await render(tool);
         )
       }
     </p>
-    <Content />
+    <div class="flex gap-4">
+      <div class="flex-2/3 prose-content">
+        <Content />
+      </div>
+      <div class="flex-1/3">
+        <BaseCard>
+          <ul class="space-y-4">
+            {
+              infoBoxListItems
+                .filter((x) => x.text)
+                .map((item) => {
+                  return (
+                    <li class="flex items-center gap-2">
+                      <Icon name={item.icon} />
+                      <LinkOrText
+                        href={item.link}
+                        aAttributes={{ class: "underline" }}
+                      >
+                        {item.text}
+                      </LinkOrText>
+                    </li>
+                  );
+                })
+            }
+          </ul>
+        </BaseCard>
+      </div>
+    </div>
   </div>
 </DefaultPageLayout>

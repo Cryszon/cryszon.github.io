@@ -30,6 +30,12 @@ const tools = defineCollection({
      */
     icon: z.string(),
     inToolbox: z.enum(["active", "previous"]),
+    links: z
+      .object({
+        github: z.string().optional(),
+        website: z.string().optional(),
+      })
+      .default({}),
   }),
 });
 
