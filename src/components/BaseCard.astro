@@ -1,7 +1,7 @@
 ---
 interface Props {
   /**
-   * Title when not using `<slot="title">`
+   * Title when not using `<slot="header">`
    */
   title?: string;
 }
@@ -9,9 +9,11 @@ interface Props {
 const { title = "" } = Astro.props;
 ---
 
-<div class="border-2 p-4">
-  <slot name="title">
-    {title && <h1>{title}</h1>}
-  </slot>
+<article class="border-2 p-4">
+  <header>
+    <slot name="header">
+      {title && <h2 class="text-4xl mb-4 text-theme-headings">{title}</h2>}
+    </slot>
+  </header>
   <slot />
-</div>
+</article>
