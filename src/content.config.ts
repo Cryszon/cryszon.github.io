@@ -32,8 +32,8 @@ const tools = defineCollection({
     inToolbox: z.enum(["active", "previous"]),
     links: z
       .object({
-        github: z.string().optional(),
-        website: z.string().optional(),
+        github: z.string().nullable().optional(),
+        website: z.string().nullable().optional(),
       })
       .default({}),
   }),
