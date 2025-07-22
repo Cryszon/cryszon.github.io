@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import ToolsGridItem from "../components/ToolsGridItem.astro";
 import { sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
+import LinkOrText from "../components/LinkOrText.astro";
 
 // TODO - Maybe sort manually instead of alphabetically?
 const tools = sortBy(await getCollection("tools"), ["id"]);
@@ -35,13 +36,12 @@ const previousTools = tools.filter((x) => x.data.inToolbox == "previous");
         {
           previousTools.map((tool) => (
             <li class="inline-block px-2">
-              {tool.body ? (
-                <a class="underline" href={`/tools/${tool.id}/`}>
-                  {tool.data.title}
-                </a>
-              ) : (
-                <span>{tool.data.title}</span>
-              )}
+              <LinkOrText
+                href={tool.body ? `/tools/${tool.id}/` : ""}
+                aAttributes={{ class: "underline" }}
+              >
+                {tool.data.title}
+              </LinkOrText>
             </li>
           ))
         }

@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  /**
+   * Link target. If this is not empty, `<a>` tag is used.
+   */
+  href?: string;
+  /**
+   * Attributes for `<a>` tag if used.
+   */
+  aAttributes?: HTMLAttributes<"a">;
+  /**
+   * Attributes for `<span>` tag if used.
+   */
+  spanAttributes?: HTMLAttributes<"span">;
+}
+
+const { href, aAttributes, spanAttributes } = Astro.props;
+const Element = href ? "a" : "span";
+const elAttributes = href
+  ? {
+      ...aAttributes,
+      href: href,
+    }
+  : spanAttributes;
+---
+
+<Element {...elAttributes}>
+  <slot />
+</Element>
