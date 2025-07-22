@@ -19,7 +19,7 @@ const pageContentCollection = defineCollection({
 });
 
 const tools = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/tools" }),
+  loader: glob({ pattern: "[^_]*.{md,mdx}", base: "./src/content/tools" }),
   schema: z.object({
     title: z.string(),
     datePublished: z.date(),
@@ -28,7 +28,7 @@ const tools = defineCollection({
     /**
      * Any installed icon supported by `astro-icon`
      */
-    icon: z.string(),
+    icon: z.string().default("heroicons:question-mark-circle"),
     inToolbox: z.enum(["active", "previous"]),
     links: z
       .object({
