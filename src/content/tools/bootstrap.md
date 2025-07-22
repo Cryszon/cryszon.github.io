@@ -4,8 +4,8 @@ icon: simple-icons:bootstrap
 datePublished: 2025-07-17
 tags: ["front-end", "css"]
 links:
-  github: https://github.com/vuejs/core
-  website: http://vuejs.org/
+  github: https://github.com/twbs/bootstrap
+  website: https://getbootstrap.com/
 inToolbox: previous
 ---
 
