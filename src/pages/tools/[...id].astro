@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import { Icon } from "astro-icon/components";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -19,6 +20,7 @@ const { Content } = await render(tool);
 <DefaultPageLayout title={tool.data.title}>
   <div class="prose-content">
     <h1>{tool.data.title}</h1>
+    <Icon class="mx-auto -mt-4 w-16 h-16" name={tool.data.icon} />
     <p class="mb-4">
       <em>Published: {tool.data.datePublished.toLocaleDateString()}</em>
       {
