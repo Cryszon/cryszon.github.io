@@ -39,12 +39,12 @@ const infoBoxListItems: InfoBoxListItem[] = [
   {
     icon: "simple-icons:github",
     text: tool.data.links.github ? "GitHub" : "",
-    link: tool.data.links.github,
+    link: tool.data.links.github ?? undefined,
   },
   {
     icon: "mynaui/globe",
     text: tool.data.links.website ? "Website" : "",
-    link: tool.data.links.website,
+    link: tool.data.links.website ?? undefined,
   },
 ];
 ---

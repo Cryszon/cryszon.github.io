@@ -2,7 +2,6 @@
 import { getEntry } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import { render } from "astro:content";
-import TextCard from "../components/TextCard.astro";
 const indexContent = await getEntry("pageContent", "index");
 
 if (!indexContent) {

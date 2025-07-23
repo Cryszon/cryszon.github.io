@@ -1,8 +1,8 @@
 onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
+  - "@parcel/watcher"
+  - "@tailwindcss/oxide"
   - esbuild
   - sharp
 
 publicHoistPattern:
-  - '*eslint*'
+  - "*eslint*"
