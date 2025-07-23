@@ -7,6 +7,7 @@ import { Icon } from "astro-icon/components";
 import BaseCard from "../../components/BaseCard.astro";
 import LinkOrText from "../../components/LinkOrText.astro";
 import { format } from "date-fns";
+import { getSubTools } from "../../utils/getSubTools";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -52,6 +53,8 @@ const infoBoxListItems: InfoBoxListItem[] = [
     link: tool.data.links.website ?? undefined,
   },
 ];
+
+const subTools = await getSubTools(tool);
 ---
 
 <DefaultPageLayout title={tool.data.title}>
@@ -99,5 +102,15 @@ const infoBoxListItems: InfoBoxListItem[] = [
         </BaseCard>
       </div>
     </div>
+    {
+      subTools && (
+        <h2 class="h2">Additional Tools for {tool.data.title}</h2>
+        <ul class="space-y-4 mt-4">
+          {subTools.map((subTool) => (
+            <li>{subTool.data.title}</li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </DefaultPageLayout>
