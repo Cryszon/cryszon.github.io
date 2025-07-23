@@ -70,7 +70,11 @@ const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
           previousTools.map((tool) => (
             <li class="inline-block px-2">
               <LinkOrText
-                href={tool.body ? `/tools/${tool.id}/` : ""}
+                href={
+                  tool.body || getNumberOfSubTools(tool)
+                    ? `/tools/${tool.id}/`
+                    : ""
+                }
                 aAttributes={{ class: "underline" }}
               >
                 {tool.data.title}

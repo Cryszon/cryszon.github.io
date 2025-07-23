@@ -13,7 +13,10 @@ const { tool, numberOfSubTools = 0 } = Astro.props;
 ---
 
 <div>
-  <LinkOrText class="relative" href={tool.body ? `/tools/${tool.id}/` : ""}>
+  <LinkOrText
+    class="relative"
+    href={tool.body || numberOfSubTools ? `/tools/${tool.id}/` : ""}
+  >
     {
       numberOfSubTools > 0 && (
         <PillBadge
