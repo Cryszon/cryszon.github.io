@@ -28,7 +28,7 @@ const tools = defineCollection({
     /**
      * Any installed icon supported by `astro-icon`
      */
-    icon: z.string().default("heroicons:question-mark-circle"),
+    icon: z.string().nullable().optional(),
     inToolbox: z.enum(["active", "previous"]),
     links: z
       .object({
@@ -36,6 +36,12 @@ const tools = defineCollection({
         website: z.string().nullable().optional(),
       })
       .default({}),
+    /**
+     * Default icon when no icon is specified
+     */
+    defaultIcon: z
+      .literal("heroicons:question-mark-circle")
+      .default("heroicons:question-mark-circle"),
   }),
 });
 

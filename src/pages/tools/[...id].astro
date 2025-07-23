@@ -59,7 +59,10 @@ const infoBoxListItems: InfoBoxListItem[] = [
     <span class="prose-content">
       <h1>{tool.data.title}</h1>
     </span>
-    <Icon class="mx-auto -mt-4 w-16 h-16" name={tool.data.icon} />
+    <Icon
+      class="mx-auto -mt-4 w-16 h-16"
+      name={tool.data.icon ?? tool.data.defaultIcon}
+    />
     <p class="mb-4">
       <em>Published: {tool.data.datePublished.toLocaleDateString()}</em>
       {

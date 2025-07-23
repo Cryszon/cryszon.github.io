@@ -22,7 +22,10 @@ const { tool, numberOfSubTools = 0 } = Astro.props;
         />
       )
     }
-    <Icon class="mx-auto w-16 h-16" name={tool.data.icon} />
+    <Icon
+      class="mx-auto w-16 h-16"
+      name={tool.data.icon ?? tool.data.defaultIcon}
+    />
     <span class="block pt-4 text-center">
       {tool.data.title}
     </span>
