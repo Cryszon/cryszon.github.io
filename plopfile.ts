@@ -24,13 +24,18 @@ export default function (plop: NodePlopAPI) {
       },
       {
         type: "input",
+        name: "links.website",
+        message: "Website link",
+      },
+      {
+        type: "input",
         name: "links.github",
         message: "GitHub link",
       },
       {
         type: "input",
-        name: "links.website",
-        message: "Website link",
+        name: "parentTool",
+        message: "If this is a sub-tool, enter the ID of the parent tool",
       },
       {
         type: "input",
@@ -78,7 +83,7 @@ export default function (plop: NodePlopAPI) {
     actions: [
       {
         type: "add",
-        path: "src/content/tools/{{kebabCase title}}.md",
+        path: "src/content/tools/{{#if parentTool}}{{parentTool}}/{{/if}}{{kebabCase title}}.md",
         templateFile: "plop-templates/tool.hbs",
         data: {
           currentDate: new Date().toISOString().split("T")[0],
