@@ -1,4 +1,41 @@
 @layer components {
+  .prose-content h1,
+  .h1,
+  .prose-content h2,
+  .h2,
+  .prose-content h3,
+  .h3,
+  .prose-content h4,
+  .h4,
+  .prose-content h5,
+  .h5,
+  .prose-content h6 .h6 {
+    &:not(.not-prose-content &) {
+      @apply text-theme-primary font-display mt-12 first:mt-0;
+    }
+  }
+
+  .prose-content h1,
+  .h1 {
+    &:not(.not-prose-content &) {
+      @apply mb-12 text-center text-6xl;
+    }
+  }
+
+  .prose-content h2,
+  .h2 {
+    &:not(.not-prose-content &) {
+      @apply text-4xl;
+    }
+  }
+
+  .prose-content h3,
+  .h3 {
+    &:not(.not-prose-content &) {
+      @apply text-2xl;
+    }
+  }
+
   .prose-content {
     @apply text-theme-text;
 
@@ -16,35 +53,6 @@
     blockquote {
       &:not(.not-prose-content &) {
         @apply mt-4 first:mt-0;
-      }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      &:not(.not-prose-content &) {
-        @apply text-theme-primary font-display mt-12 first:mt-0;
-      }
-    }
-
-    h1 {
-      &:not(.not-prose-content &) {
-        @apply mb-12 text-center text-6xl;
-      }
-    }
-
-    h2 {
-      &:not(.not-prose-content &) {
-        @apply text-4xl;
-      }
-    }
-
-    h3 {
-      &:not(.not-prose-content &) {
-        @apply text-2xl;
       }
     }
 
