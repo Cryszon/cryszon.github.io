@@ -19,7 +19,7 @@ const pageContentCollection = defineCollection({
 });
 
 const tools = defineCollection({
-  loader: glob({ pattern: "[^_]*.{md,mdx}", base: "./src/content/tools" }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/tools" }),
   schema: z.object({
     title: z.string(),
     datePublished: z.date(),

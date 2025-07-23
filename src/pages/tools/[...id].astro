@@ -10,10 +10,15 @@ import { format } from "date-fns";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
-  return tools.map((tool) => ({
-    params: { id: tool.id },
-    props: { tool },
-  }));
+  return (
+    tools
+      // Filter to only generate pages for main tools, not sub-tools
+      .filter((tool) => false === tool.id.includes("/"))
+      .map((tool) => ({
+        params: { id: tool.id },
+        props: { tool },
+      }))
+  );
 }) satisfies GetStaticPaths;
 
 const { tool } = Astro.props;

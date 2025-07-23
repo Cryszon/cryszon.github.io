@@ -14,9 +14,15 @@ interface Props {
    * Attributes for `<span>` tag if used.
    */
   spanAttributes?: HTMLAttributes<"span">;
+  class?: HTMLAttributes<"a" | "span">["class"];
 }
 
-const { href, aAttributes, spanAttributes } = Astro.props;
+const {
+  href,
+  aAttributes,
+  spanAttributes,
+  class: className = "",
+} = Astro.props;
 const Element = href ? "a" : "span";
 const elAttributes = href
   ? {
@@ -26,6 +32,6 @@ const elAttributes = href
   : spanAttributes;
 ---
 
-<Element {...elAttributes}>
+<Element {...elAttributes} class:list={[className]}>
   <slot />
 </Element>

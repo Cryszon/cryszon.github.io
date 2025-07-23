@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  text: string;
+  class?: HTMLAttributes<"div">["class"];
+}
+
+const { text, class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    className,
+    "bg-gray-200 dark:bg-gray-800 text-xs rounded-full py-1 px-2 font-bold text-theme-text",
+  ]}
+>
+  {text}
+</div>

@@ -6,10 +6,36 @@ import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import LinkOrText from "../components/LinkOrText.astro";
 
 // TODO - Maybe sort manually instead of alphabetically?
-const tools = sortBy(await getCollection("tools"), ["id"]);
 
-const currentTools = tools.filter((x) => x.data.inToolbox == "active");
-const previousTools = tools.filter((x) => x.data.inToolbox == "previous");
+const allTools = sortBy(await getCollection("tools"), ["id"]);
+
+type Tool = (typeof allTools)[number];
+
+const mainTools: Tool[] = [];
+const subToolsByParentId: Record<string, Tool[]> = {};
+
+// Split all tools into main and sub tools
+for (const tool of allTools) {
+  const [parentId, subId] = tool.id.split("/");
+  if (subId) {
+    if (!subToolsByParentId[parentId]) {
+      subToolsByParentId[parentId] = [];
+    }
+    subToolsByParentId[parentId].push(tool);
+  } else {
+    mainTools.push(tool);
+  }
+}
+
+/**
+ * Return the number of sub-tools for a specific tool
+ */
+const getNumberOfSubTools = (tool: Tool): number => {
+  return subToolsByParentId[tool.id]?.length ?? 0;
+};
+
+const currentTools = mainTools.filter((x) => x.data.inToolbox == "active");
+const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
 ---
 
 <DefaultPageLayout title="Tools">
@@ -22,7 +48,14 @@ const previousTools = tools.filter((x) => x.data.inToolbox == "previous");
       copy and get inspired!
     </p>
     <div class="grid grid-cols-8 gap-4 mt-16">
-      {currentTools.map((tool) => <ToolsGridItem tool={tool} />)}
+      {
+        currentTools.map((tool) => (
+          <ToolsGridItem
+            tool={tool}
+            numberOfSubTools={getNumberOfSubTools(tool)}
+          />
+        ))
+      }
     </div>
     <div class="mt-16">
       <h2>Previously Used</h2>
