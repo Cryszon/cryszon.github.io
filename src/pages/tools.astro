@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 import ToolsGridItem from "../components/ToolsGridItem.astro";
 import { sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
-import LinkOrText from "../components/LinkOrText.astro";
 import type { CollectionEntry } from "astro:content";
+import DividedHorizontalList from "../components/DividedHorizontalList.astro";
 
 // TODO - Maybe sort manually instead of alphabetically?
 
@@ -66,24 +66,18 @@ const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
         how far I and the industry have come. Maybe some of them will return to
         my toolbox in the future.
       </p>
-      <ul class="not-prose-content mt-8 divide-x">
-        {
-          previousTools.map((tool) => (
-            <li class="inline-block px-2">
-              <LinkOrText
-                href={
-                  tool.body || getNumberOfSubTools(tool)
-                    ? `/tools/${tool.id}/`
-                    : ""
-                }
-                aAttributes={{ class: "underline" }}
-              >
-                {tool.data.title}
-              </LinkOrText>
-            </li>
-          ))
-        }
-      </ul>
+      <DividedHorizontalList
+        class="not-prose-content mt-8"
+        items={previousTools.map((tool) => {
+          return {
+            name: tool.data.title,
+            href:
+              tool.body || getNumberOfSubTools(tool)
+                ? `/tools/${tool.id}/`
+                : "",
+          };
+        })}
+      />
     </div>
   </div>
 </DefaultPageLayout>

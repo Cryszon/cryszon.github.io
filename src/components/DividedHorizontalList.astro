@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import LinkOrText from "./LinkOrText.astro";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  items: {
+    name: string;
+    href?: string | null;
+    icon?: string | null;
+  }[];
+  class?: HTMLAttributes<"div">["class"];
+}
+
+const { items, class: className = "" } = Astro.props;
+---
+
+<ul class:list={[className, "flex not-prose-content divide-x"]}>
+  {
+    items.map(({ name, href, icon }) => (
+      <li class="flex items-center px-2 first:pl-0 last:pr-0 gap-2">
+        {icon && <Icon name={icon} />}
+        <LinkOrText href={href} aAttributes={{ class: "underline" }}>
+          {name}
+        </LinkOrText>
+      </li>
+    ))
+  }
+</ul>
