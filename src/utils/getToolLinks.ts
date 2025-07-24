@@ -32,9 +32,11 @@ export function getToolLinks(
   links: CollectionEntry<"tools">["data"]["links"],
 ): ToolLink[] {
   return (
-    // 1. Convert object to tuple array (Object.entries())
+    // Convert object to tuple array (Object.entries())
     toPairs(links)
-      // 2. Sort specific links in consistent order
+      // Filter out links without target href
+      .filter(([name, href]) => name && href)
+      // Sort specific links in consistent order
       .toSorted(([name1], [name2]) => {
         const [preferredIndex1, preferredIndex2] = [name1, name2].map((x) =>
           preferredOrderByName.indexOf(
