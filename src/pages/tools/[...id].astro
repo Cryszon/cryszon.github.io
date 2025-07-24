@@ -8,6 +8,8 @@ import BaseCard from "../../components/BaseCard.astro";
 import LinkOrText from "../../components/LinkOrText.astro";
 import { format } from "date-fns";
 import { getSubTools } from "../../utils/getSubTools";
+import SubToolCard from "../../components/SubToolCard.astro";
+import { getToolLinks } from "../../utils/getToolLinks";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -26,32 +28,23 @@ const { tool } = Astro.props;
 const { Content } = await render(tool);
 
 interface InfoBoxListItem {
-  icon?: string;
-  text?: string;
-  link?: string;
+  icon?: string | null;
+  name?: string;
+  href?: string | null;
 }
 
 const infoBoxListItems: InfoBoxListItem[] = [
   {
     icon: "heroicons:clock",
-    text: `Published ${format(tool.data.datePublished, "yyyy-MM-dd")}`,
+    name: `Published ${format(tool.data.datePublished, "yyyy-MM-dd")}`,
   },
   {
     icon: "heroicons:clock",
-    text: tool.data.dateUpdated
+    name: tool.data.dateUpdated
       ? `Updated ${format(tool.data.dateUpdated, "yyyy-MM-dd")}`
       : "",
   },
-  {
-    icon: "simple-icons:github",
-    text: tool.data.links.github ? "GitHub" : "",
-    link: tool.data.links.github ?? undefined,
-  },
-  {
-    icon: "mynaui/globe",
-    text: tool.data.links.website ? "Website" : "",
-    link: tool.data.links.website ?? undefined,
-  },
+  ...getToolLinks(tool.data.links),
 ];
 
 const subTools = await getSubTools(tool);
@@ -83,16 +76,16 @@ const subTools = await getSubTools(tool);
           <ul class="space-y-4">
             {
               infoBoxListItems
-                .filter((x) => x.text)
+                .filter((x) => x.name)
                 .map((item) => {
                   return (
                     <li class="flex items-center gap-2">
                       <Icon name={item.icon} />
                       <LinkOrText
-                        href={item.link}
+                        href={item.href}
                         aAttributes={{ class: "underline" }}
                       >
-                        {item.text}
+                        {item.name}
                       </LinkOrText>
                     </li>
                   );
@@ -103,13 +96,15 @@ const subTools = await getSubTools(tool);
       </div>
     </div>
     {
-      subTools && (
-        <h2 class="h2">Additional Tools for {tool.data.title}</h2>
-        <ul class="space-y-4 mt-4">
-          {subTools.map((subTool) => (
-            <li>{subTool.data.title}</li>
-          ))}
-        </ul>
+      subTools.length > 0 && (
+        <>
+          <h2 class="h2">Additional Tools for {tool.data.title}</h2>
+          <ul class="space-y-8 mt-8">
+            {subTools.map((subTool) => (
+              <SubToolCard tool={subTool} />
+            ))}
+          </ul>
+        </>
       )
     }
   </div>
