@@ -1,15 +1,18 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 interface Props {
   /**
    * Title when not using `<slot="header">`
    */
   title?: string;
+  class?: HTMLAttributes<"div">["class"];
 }
 
-const { title = "" } = Astro.props;
+const { title = "", class: className = "" } = Astro.props;
 ---
 
-<article class="border-2 p-4">
+<article class:list={[className, "border-2 p-4"]}>
   <header>
     <slot name="header">
       {title && <h2 class="text-4xl mb-4 text-theme-headings">{title}</h2>}
