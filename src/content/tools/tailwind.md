@@ -4,8 +4,8 @@ icon: simple-icons:tailwindcss
 datePublished: 2025-07-17
 tags: ["front-end", "css"]
 links:
-  github: https://github.com/tailwindlabs/tailwindcss
-  website: https://tailwindcss.com/
+  GitHub: https://github.com/tailwindlabs/tailwindcss
+  Website: https://tailwindcss.com/
 inToolbox: active
 ---
 

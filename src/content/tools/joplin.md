@@ -4,8 +4,8 @@ icon: simple-icons:joplin
 datePublished: 2025-07-18
 tags: [productivity]
 links:
-  github: https://github.com/laurent22/joplin/
-  website: https://joplinapp.org/
+  GitHub: https://github.com/laurent22/joplin/
+  Website: https://joplinapp.org/
 inToolbox: active
 ---
 

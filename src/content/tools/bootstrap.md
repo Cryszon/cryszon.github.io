@@ -4,8 +4,8 @@ icon: simple-icons:bootstrap
 datePublished: 2025-07-17
 tags: ["front-end", "css"]
 links:
-  github: https://github.com/twbs/bootstrap
-  website: https://getbootstrap.com/
+  GitHub: https://github.com/twbs/bootstrap
+  Website: https://getbootstrap.com/
 inToolbox: previous
 ---
 

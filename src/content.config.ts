@@ -30,12 +30,19 @@ const tools = defineCollection({
      */
     icon: z.string().nullable().optional(),
     inToolbox: z.enum(["active", "previous"]),
+    /**
+     * Links associated with this tool.
+     *
+     * Keys are link titles and values are link targets. For some specific
+     * service links, a custom icon may be used.
+     */
     links: z
       .object({
-        github: z.string().nullable().optional(),
-        website: z.string().nullable().optional(),
+        GitHub: z.string().nullable(),
+        Website: z.string().nullable(),
       })
-      .default({}),
+      .catchall(z.string().nullable().optional())
+      .default({ GitHub: "", Website: "" }),
     /**
      * Default icon when no icon is specified
      */

@@ -4,7 +4,7 @@ icon: simple-icons:docker
 datePublished: 2025-07-18
 tags: [back-end, devops, linux]
 links:
-  github: https://github.com/docker
-  website: https://www.docker.com/
+  GitHub: https://github.com/docker
+  Website: https://www.docker.com/
 inToolbox: active
 ---

@@ -4,7 +4,7 @@ icon:
 datePublished: 2025-07-23
 tags: [bash, devtools]
 links:
-  github: https://github.com/junegunn/fzf
-  website: https://junegunn.github.io/fzf/
+  GitHub: https://github.com/junegunn/fzf
+  Website: https://junegunn.github.io/fzf/
 inToolbox: active
 ---

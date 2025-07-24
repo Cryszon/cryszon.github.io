@@ -4,8 +4,8 @@ icon: simple-icons:typescript
 datePublished: 2025-07-01
 tags: ["front-end", "frameworks"]
 links:
-  github: https://github.com/microsoft/TypeScript
-  website: https://www.typescriptlang.org/
+  GitHub: https://github.com/microsoft/TypeScript
+  Website: https://www.typescriptlang.org/
 inToolbox: active
 ---
 
