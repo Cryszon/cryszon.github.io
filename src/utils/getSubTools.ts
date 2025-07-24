@@ -1,6 +1,6 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-type Tool = Awaited<ReturnType<typeof getCollection<"tools">>>[number];
+type Tool = CollectionEntry<"tools">;
 
 /**
  * Get all sub-tools of a specific tool

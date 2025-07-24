@@ -4,12 +4,13 @@ import ToolsGridItem from "../components/ToolsGridItem.astro";
 import { sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import LinkOrText from "../components/LinkOrText.astro";
+import type { CollectionEntry } from "astro:content";
 
 // TODO - Maybe sort manually instead of alphabetically?
 
 const allTools = sortBy(await getCollection("tools"), ["id"]);
 
-type Tool = (typeof allTools)[number];
+type Tool = CollectionEntry<"tools">;
 
 const mainTools: Tool[] = [];
 const subToolsByParentId: Record<string, Tool[]> = {};
