@@ -6,5 +6,5 @@ tags: [frontend]
 links:
   GitHub: https://github.com/nuxt/nuxt
   Website: https://nuxt.com/
-inToolbox: active
+usageStatus: inToolbox
 ---

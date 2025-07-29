@@ -6,7 +6,7 @@ tags: ["technologies"]
 links:
   GitHub: https://github.com/graphql
   Website: https://graphql.org/
-inToolbox: active
+usageStatus: inToolbox
 ---
 
 I prefer GraphQL over REST APIs for DX and consistency compared to the wild west

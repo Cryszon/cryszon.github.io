@@ -6,5 +6,5 @@ tags: [devops, dx]
 links:
   GitHub: https://github.com/moonrepo/moon
   Website: https://moonrepo.dev/moon
-inToolbox: active
+usageStatus: inToolbox
 ---

@@ -6,5 +6,5 @@ tags: [linux, devops]
 links:
   GitHub:
   Website: https://www.gnu.org/software/bash/
-inToolbox: active
+usageStatus: inToolbox
 ---

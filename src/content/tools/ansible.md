@@ -6,5 +6,5 @@ tags: ["front-end", "frameworks"]
 links:
   GitHub: https://github.com/ansible/ansible
   Website: https://www.redhat.com/en/ansible-collaborative
-inToolbox: previous
+usageStatus: storedAway
 ---

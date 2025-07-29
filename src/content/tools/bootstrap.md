@@ -6,7 +6,7 @@ tags: ["front-end", "css"]
 links:
   GitHub: https://github.com/twbs/bootstrap
   Website: https://getbootstrap.com/
-inToolbox: previous
+usageStatus: storedAway
 ---
 
 Bootstrap was the first proper CSS framework I used back in version 3. Before

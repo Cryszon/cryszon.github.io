@@ -1,7 +1,5 @@
-import type { z } from "astro:content";
 import type { PlopGeneratorConfig } from "plop";
-import type { OrReturnType } from "../src/types/utils";
-import type { collections } from "../src/content.config";
+import { toolsSchema } from "../src/content.schema.ts";
 import { kebabCase } from "es-toolkit";
 
 export default {
@@ -50,33 +48,9 @@ export default {
       },
       {
         type: "list",
-        name: "inToolbox",
-        choices: ["yes", "no"],
-        message: "Are you currently using this tool?",
-        filter: (input: string) => {
-          // The following code ensures that `yes` and `no` responses map to
-          // valid `inToolbox` values for the tools content schema. It's by no
-          // means necessary as Astro validates the schema anyway, but it was a
-          // decent learning exercise.
-          const inputMap = {
-            yes: "active",
-            no: "previous",
-          } as const satisfies Record<
-            // Use `yes` and `no` choices as keys
-            "yes" | "no",
-            // Infer valid `inToolbox` values from Astro content collection
-            // schema. Content collection schema can be either a method, an
-            // object literal or undefined so we use a combination of
-            // NonNullable and OrReturnType to make sure we only get the object
-            // schema.
-            z.infer<
-              OrReturnType<NonNullable<typeof collections.tools.schema>>
-            >["inToolbox"]
-          >;
-          return input in inputMap
-            ? inputMap[input as keyof typeof inputMap]
-            : "yes";
-        },
+        name: "usageStatus",
+        choices: toolsSchema.shape.usageStatus.options,
+        message: "What's the current usage status of this tool?",
       },
     ],
     actions: [

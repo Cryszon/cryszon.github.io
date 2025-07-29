@@ -6,7 +6,7 @@ tags: ["front-end", "css"]
 links:
   GitHub: https://github.com/tailwindlabs/tailwindcss
   Website: https://tailwindcss.com/
-inToolbox: active
+usageStatus: inToolbox
 ---
 
 When I first discovered Tailwind back in early 2021, developers were (and still

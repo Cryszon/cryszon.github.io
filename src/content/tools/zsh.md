@@ -6,5 +6,5 @@ tags: ["front-end", "frameworks"]
 links:
   GitHub:
   Website: https://www.zsh.org/
-inToolbox: previous
+usageStatus: storedAway
 ---

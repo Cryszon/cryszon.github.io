@@ -6,7 +6,7 @@ tags: [bash, devtools]
 links:
   GitHub: https://github.com/starship/starship
   Website: https://starship.rs/guide/
-inToolbox: active
+usageStatus: inToolbox
 ---
 
 Check out my custom Starship configuration in my [`.dotfiles` repository](https://github.com/Cryszon/dotfiles/blob/main/dot_config/starship.toml).

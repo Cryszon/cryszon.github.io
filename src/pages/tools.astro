@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import ToolsGridItem from "../components/ToolsGridItem.astro";
-import { sortBy } from "es-toolkit";
+import { groupBy, sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import DividedHorizontalList from "../components/DividedHorizontalList.astro";
@@ -28,15 +28,14 @@ for (const tool of allTools) {
   }
 }
 
+const groupedTools = groupBy(mainTools, (x) => x.data.usageStatus);
+
 /**
  * Return the number of sub-tools for a specific tool
  */
 const getNumberOfSubTools = (tool: Tool): number => {
   return subToolsByParentId[tool.id]?.length ?? 0;
 };
-
-const currentTools = mainTools.filter((x) => x.data.inToolbox == "active");
-const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
 ---
 
 <DefaultPageLayout title="Tools">
@@ -50,7 +49,7 @@ const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
     </p>
     <div class="grid grid-cols-8 gap-4 mt-16">
       {
-        currentTools.map((tool) => (
+        groupedTools.inToolbox?.map((tool) => (
           <ToolsGridItem
             tool={tool}
             numberOfSubTools={getNumberOfSubTools(tool)}
@@ -58,8 +57,27 @@ const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
         ))
       }
     </div>
+    {
+      groupedTools.onTheShelf?.length && (
+        <>
+          <h2>On the Shelf</h2>
+          <p>
+            These are tools that are used in projects I maintain or that I
+            occasionally reach for when need arises.
+          </p>
+          <div class="grid grid-cols-8 gap-4 mt-16">
+            {groupedTools.onTheShelf?.map((tool) => (
+              <ToolsGridItem
+                tool={tool}
+                numberOfSubTools={getNumberOfSubTools(tool)}
+              />
+            ))}
+          </div>
+        </>
+      )
+    }
     <div class="mt-16">
-      <h2>Previously Used</h2>
+      <h2>Stored Away</h2>
       <p>
         These are tools I've used previously but are not in active use for some
         reason. I've listed them here for historical purposes and to showcase
@@ -68,7 +86,7 @@ const previousTools = mainTools.filter((x) => x.data.inToolbox == "previous");
       </p>
       <DividedHorizontalList
         class="not-prose-content mt-8"
-        items={previousTools.map((tool) => {
+        items={groupedTools.storedAway?.map((tool) => {
           return {
             name: tool.data.title,
             href:

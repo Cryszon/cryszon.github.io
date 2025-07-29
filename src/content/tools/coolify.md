@@ -5,5 +5,5 @@ tags: [backend, devops]
 links:
   GitHub: https://github.com/coollabsio/coolify
   Website: https://coolify.io/
-inToolbox: active
+usageStatus: inToolbox
 ---

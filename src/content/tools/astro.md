@@ -6,5 +6,5 @@ tags: ["front-end", "frameworks"]
 links:
   GitHub: https://github.com/withastro/astro
   Website: https://astro.build/
-inToolbox: active
+usageStatus: inToolbox
 ---

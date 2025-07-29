@@ -6,5 +6,5 @@ tags: [bash, devtools]
 links:
   GitHub: https://github.com/junegunn/fzf
   Website: https://junegunn.github.io/fzf/
-inToolbox: active
+usageStatus: inToolbox
 ---

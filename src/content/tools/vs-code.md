@@ -6,7 +6,7 @@ tags: ["editors"]
 links:
   GitHub: https://github.com/microsoft/vscode
   Website: https://code.visualstudio.com/
-inToolbox: active
+usageStatus: inToolbox
 ---
 
 Here's my VS code setup and extensions I use...

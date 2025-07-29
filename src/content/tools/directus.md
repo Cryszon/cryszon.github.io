@@ -6,5 +6,5 @@ tags: [backend, cms]
 links:
   GitHub: https://github.com/directus/directus
   Website: https://directus.io/
-inToolbox: active
+usageStatus: inToolbox
 ---

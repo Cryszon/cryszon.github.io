@@ -6,5 +6,5 @@ tags: [devops, dx]
 links:
   GitHub: https://github.com/nrwl/nx
   Website: https://nx.dev/
-inToolbox: previous
+usageStatus: storedAway
 ---

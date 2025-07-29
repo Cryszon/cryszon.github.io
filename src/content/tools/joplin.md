@@ -6,7 +6,7 @@ tags: [productivity]
 links:
   GitHub: https://github.com/laurent22/joplin/
   Website: https://joplinapp.org/
-inToolbox: active
+usageStatus: inToolbox
 ---
 
 I use Joplin for my daily notes. For my work notes, I have a separate Git
