@@ -1,6 +1,6 @@
 ---
 title: npm-package-json-lint
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [devtools, code-quality]
 links:

@@ -1,6 +1,6 @@
 ---
 title: Vue I18n
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [i18n, vue]
 links:

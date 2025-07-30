@@ -1,6 +1,6 @@
 ---
 title: VeeValidate
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [forms, validation]
 links:

@@ -1,6 +1,6 @@
 ---
 title: Icônes
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [icons, devtools, services]
 links:

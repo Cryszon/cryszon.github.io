@@ -1,10 +1,10 @@
 ---
 title: type-fest
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [typescript]
 links:
   GitHub: https://github.com/sindresorhus/type-fest
-  Website: 
+  Website:
 usageStatus: inToolbox
 ---

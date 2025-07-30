@@ -1,6 +1,6 @@
 ---
 title: date-fns
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [node-libraries]
 links:

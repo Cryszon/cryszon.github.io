@@ -1,10 +1,10 @@
 ---
 title: prettier-plugin-packagejson
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [prettier]
 links:
   GitHub: https://github.com/matzkoh/prettier-plugin-packagejson
-  Website: 
+  Website:
 usageStatus: inToolbox
 ---

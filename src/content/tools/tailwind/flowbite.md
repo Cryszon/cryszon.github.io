@@ -1,6 +1,6 @@
 ---
 title: Flowbite
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [tailwind, ui-library]
 links:

@@ -1,6 +1,6 @@
 ---
 title: Buggregator
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [devtools, debugging]
 links:

@@ -1,6 +1,6 @@
 ---
 title: es-toolkit
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [node-packages]
 links:

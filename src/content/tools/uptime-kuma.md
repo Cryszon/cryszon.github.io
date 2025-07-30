@@ -1,6 +1,6 @@
 ---
 title: Uptime Kuma
-icon: 
+icon:
 datePublished: 2025-07-30
 tags: [devops, sysadmin]
 links:

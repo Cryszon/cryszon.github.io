@@ -1,6 +1,6 @@
 ---
 title: VueUse
-icon:  
+icon:
 datePublished: 2025-07-30
 tags: [vue]
 links:
