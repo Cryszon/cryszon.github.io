@@ -8,3 +8,5 @@ links:
   Website: https://vue-i18n.intlify.dev/
 usageStatus: inToolbox
 ---
+
+Also check out [`@intlify/unplugin-vue-i18n`](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n).

@@ -9,4 +9,4 @@ links:
 usageStatus: inToolbox
 ---
 
-I migrated from FormKit to VeeValidate.
+I migrated from FormKit to VeeValidate and use [Zod](https://vee-validate.logaretm.com/v4/guide/composition-api/typed-schema#zod) for validation.
