@@ -12,9 +12,16 @@ interface Props {
    * Additional segments after "Home". Uses title cased URL segments by default.
    */
   additionalSegments?: Segment[];
+  /**
+   * Specify a custom string to use as the last segment title instead of title
+   * cased URL segment.
+   *
+   * Specifying `additionalSegments` overrides this.
+   */
+  overrideLastSegmentTitle?: string;
 }
 
-let { additionalSegments } = Astro.props;
+let { additionalSegments, overrideLastSegmentTitle } = Astro.props;
 
 let segments = [
   {
@@ -39,6 +46,10 @@ if (additionalSegments === undefined) {
         title: startCase(segment),
       };
     });
+  if (overrideLastSegmentTitle) {
+    const last = additionalSegments.at(-1);
+    last && (last.title = overrideLastSegmentTitle);
+  }
 }
 
 segments = [...segments, ...additionalSegments];

@@ -13,7 +13,9 @@ const { ...baseHtmlLayoutProps } = Astro.props;
     class="mx-auto box-content max-w-(--breakpoint-lg) px-4 min-h-screen flex flex-col"
   >
     <slot name="navigation">
-      <BreadcrumbNavigation />
+      <BreadcrumbNavigation
+        overrideLastSegmentTitle={baseHtmlLayoutProps.title}
+      />
     </slot>
 
     <div class="grow">

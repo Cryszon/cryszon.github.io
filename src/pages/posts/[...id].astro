@@ -19,21 +19,6 @@ const { Content } = await render(post);
 ---
 
 <DefaultPageLayout title={post.data.title}>
-  {/* Custom navigation to use page title as segment instead of URL */}
-  <BreadcrumbNavigation
-    additionalSegments={[
-      {
-        url: "/posts/",
-        title: "Posts",
-      },
-      {
-        url: `/posts/${post.id}/`,
-        title: post.data.title,
-      },
-    ]}
-    slot="navigation"
-  />
-
   <div class="prose-content">
     <h1>{post.data.title}</h1>
     <p>
