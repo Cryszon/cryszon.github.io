@@ -70,7 +70,7 @@ const getNumberOfSubTools = (tool: Tool): number => {
             items={groupedTools.onTheShelf?.map((tool) => {
               return {
                 name: tool.data.title,
-                icon: tool.data.icon,
+                icon: tool.data.icon ?? tool.data.defaultIcon,
                 href:
                   tool.body || getNumberOfSubTools(tool)
                     ? `/tools/${tool.id}/`
@@ -94,7 +94,7 @@ const getNumberOfSubTools = (tool: Tool): number => {
         items={groupedTools.storedAway?.map((tool) => {
           return {
             name: tool.data.title,
-            icon: tool.data.icon,
+            icon: tool.data.icon ?? tool.data.defaultIcon,
             href:
               tool.body || getNumberOfSubTools(tool)
                 ? `/tools/${tool.id}/`
