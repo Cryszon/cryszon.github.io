@@ -12,6 +12,8 @@ import SubToolCard from "../../components/SubToolCard.astro";
 import { getToolLinks } from "../../utils/getToolLinks";
 import { groupBy, sortBy } from "es-toolkit";
 import DividedHorizontalList from "../../components/DividedHorizontalList.astro";
+import { getToolArticles } from "../../utils/relatedContent";
+import { normalizeTrailingSlash } from "@reunmedia/astro-normalize-trailing-slash";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -49,6 +51,7 @@ const infoBoxListItems: InfoBoxListItem[] = [
   ...getToolLinks(tool.data.links),
 ];
 
+//#region Sub-tools
 const subTools = sortBy(await getSubTools(tool), ["id"]);
 const { inToolbox: toolsInToolbox, ...otherSubTools } = groupBy(
   subTools,
@@ -58,6 +61,11 @@ const toolsNotInToolbox = sortBy(
   [...(otherSubTools.onTheShelf ?? []), ...(otherSubTools.storedAway ?? [])],
   ["id"],
 );
+//#endregion
+
+//#region Articles
+const relatedArticles = await getToolArticles(tool);
+//#endregion
 ---
 
 <DefaultPageLayout title={tool.data.title}>
@@ -83,7 +91,8 @@ const toolsNotInToolbox = sortBy(
       </div>
       <div class="flex-1/3">
         <BaseCard>
-          <ul class="space-y-4">
+          <h2 class="text-theme-primary text-lg font-display">Tool Info</h2>
+          <ul class="space-y-4 mt-4">
             {
               infoBoxListItems
                 .filter((x) => x.name)
@@ -102,6 +111,29 @@ const toolsNotInToolbox = sortBy(
                 })
             }
           </ul>
+          {
+            relatedArticles.length > 0 && (
+              <>
+                <h2 class="text-theme-primary text-lg font-display mt-8">
+                  Related Articles
+                </h2>
+                <ul class="space-y-4 mt-4">
+                  {relatedArticles.map((article) => {
+                    return (
+                      <li>
+                        <a
+                          class="underline"
+                          href={normalizeTrailingSlash(`/posts/${article.id}/`)}
+                        >
+                          {article.data.title}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            )
+          }
         </BaseCard>
       </div>
     </div>
@@ -115,16 +147,18 @@ const toolsNotInToolbox = sortBy(
             ))}
           </ul>
           {toolsNotInToolbox.length > 0 && (
-            <h3 class="h3">I have also used</h3>
-            <DividedHorizontalList
-              class="mt-8"
-              items={toolsNotInToolbox.map((tool) => {
-                return {
-                  name: tool.data.title,
-                  icon: tool.data.icon ?? tool.data.defaultIcon,
-                };
-              })}
-            />
+            <>
+              <h3 class="h3">I have also used</h3>
+              <DividedHorizontalList
+                class="mt-8"
+                items={toolsNotInToolbox.map((tool) => {
+                  return {
+                    name: tool.data.title,
+                    icon: tool.data.icon ?? tool.data.defaultIcon,
+                  };
+                })}
+              />
+            </>
           )}
         </>
       )
