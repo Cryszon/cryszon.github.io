@@ -10,7 +10,8 @@ import { format } from "date-fns";
 import { getSubTools } from "../../utils/getSubTools";
 import SubToolCard from "../../components/SubToolCard.astro";
 import { getToolLinks } from "../../utils/getToolLinks";
-import { sortBy } from "es-toolkit";
+import { groupBy, sortBy } from "es-toolkit";
+import DividedHorizontalList from "../../components/DividedHorizontalList.astro";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -49,6 +50,14 @@ const infoBoxListItems: InfoBoxListItem[] = [
 ];
 
 const subTools = sortBy(await getSubTools(tool), ["id"]);
+const { inToolbox: toolsInToolbox, ...otherSubTools } = groupBy(
+  subTools,
+  (x) => x.data.usageStatus,
+);
+const toolsNotInToolbox = sortBy(
+  [...(otherSubTools.onTheShelf ?? []), ...(otherSubTools.storedAway ?? [])],
+  ["id"],
+);
 ---
 
 <DefaultPageLayout title={tool.data.title}>
@@ -101,10 +110,22 @@ const subTools = sortBy(await getSubTools(tool), ["id"]);
         <>
           <h2 class="h2">Additional Tools for {tool.data.title}</h2>
           <ul class="space-y-8 mt-8">
-            {subTools.map((subTool) => (
+            {toolsInToolbox.map((subTool) => (
               <SubToolCard tool={subTool} />
             ))}
           </ul>
+          {toolsNotInToolbox.length > 0 && (
+            <h3 class="h3">I have also used</h3>
+            <DividedHorizontalList
+              class="mt-8"
+              items={toolsNotInToolbox.map((tool) => {
+                return {
+                  name: tool.data.title,
+                  icon: tool.data.icon ?? tool.data.defaultIcon,
+                };
+              })}
+            />
+          )}
         </>
       )
     }
