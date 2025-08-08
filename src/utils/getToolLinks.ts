@@ -12,7 +12,7 @@ interface ToolLink {
  *
  * Other links are in alphabetical order.
  */
-const preferredOrderByName: Lowercase<string>[] = ["github", "website"];
+const preferredOrderByName: Lowercase<string>[] = ["website", "github"];
 
 /**
  * Icons for specific link names (case-insensitive)
