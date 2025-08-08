@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import LinkOrText from "./LinkOrText.astro";
+import PillBadge from "./PillBadge.astro";
+
+interface Props {
+  tags: Array<
+    | string
+    | {
+        title: "";
+        href: "";
+      }
+  >;
+  class?: HTMLAttributes<"div">["class"];
+}
+
+const { tags, class: className = "" } = Astro.props;
+---
+
+<ul class:list={[className, "flex gap-1 flex-wrap"]}>
+  {
+    tags.map((tag) => (
+      <li class="inline-block">
+        <PillBadge>
+          <LinkOrText
+            href={typeof tag === "string" ? undefined : tag.href}
+            aAttributes={{ class: "underline" }}
+          >
+            {typeof tag === "string" ? tag : tag.href}
+          </LinkOrText>
+        </PillBadge>
+      </li>
+    ))
+  }
+</ul>
