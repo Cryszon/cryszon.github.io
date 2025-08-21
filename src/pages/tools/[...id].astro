@@ -84,6 +84,7 @@ const relatedArticles = await getToolArticles(tool);
       <div class="flex-1/3">
         <BaseCard>
           <h2 class="text-theme-primary text-lg font-display">Tool Info</h2>
+          <TagCollection class="mt-4" tags={tool.data.tags} />
           <ul class="space-y-4 mt-4">
             {
               infoBoxListItems
@@ -103,7 +104,6 @@ const relatedArticles = await getToolArticles(tool);
                 })
             }
           </ul>
-          <TagCollection class="mt-6" tags={tool.data.tags} />
           {
             relatedArticles.length > 0 && (
               <>
@@ -141,7 +141,7 @@ const relatedArticles = await getToolArticles(tool);
           </ul>
           {toolsNotInToolbox.length > 0 && (
             <>
-              <h3 class="h3">I have also used</h3>
+              <h3 class="h3">I also sometimes use</h3>
               <DividedHorizontalList
                 class="mt-8"
                 items={toolsNotInToolbox.map((tool) => {
