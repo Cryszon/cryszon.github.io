@@ -5,7 +5,7 @@ import PillBadge from "./PillBadge.astro";
 import { sortBy } from "es-toolkit";
 
 interface Props {
-  tags: Array<string | NormalizedTag>;
+  tags: (string | NormalizedTag)[];
   class?: HTMLAttributes<"div">["class"];
 }
 

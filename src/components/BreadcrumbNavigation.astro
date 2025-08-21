@@ -48,7 +48,9 @@ if (additionalSegments === undefined) {
     });
   if (overrideLastSegmentTitle) {
     const last = additionalSegments.at(-1);
-    last && (last.title = overrideLastSegmentTitle);
+    if (last) {
+      last.title = overrideLastSegmentTitle;
+    }
   }
 }
 
