@@ -2,31 +2,38 @@
 import type { HTMLAttributes } from "astro/types";
 import LinkOrText from "./LinkOrText.astro";
 import PillBadge from "./PillBadge.astro";
+import { sortBy } from "es-toolkit";
 
 interface Props {
-  tags: Array<
-    | string
-    | {
-        title: "";
-        href: "";
-      }
-  >;
+  tags: Array<string | NormalizedTag>;
   class?: HTMLAttributes<"div">["class"];
 }
 
+interface NormalizedTag {
+  title: string;
+  href?: string | undefined;
+}
+
 const { tags, class: className = "" } = Astro.props;
+
+// Normalize string tags to objects
+const normalizedTags: NormalizedTag[] = tags.map((tag) =>
+  typeof tag === "string"
+    ? ({
+        title: tag,
+        href: undefined,
+      } satisfies NormalizedTag)
+    : tag,
+);
 ---
 
 <ul class:list={[className, "flex gap-1 flex-wrap"]}>
   {
-    tags.map((tag) => (
+    sortBy(normalizedTags, ["title"]).map((tag) => (
       <li class="inline-block">
         <PillBadge>
-          <LinkOrText
-            href={typeof tag === "string" ? undefined : tag.href}
-            aAttributes={{ class: "underline" }}
-          >
-            {typeof tag === "string" ? tag : tag.href}
+          <LinkOrText href={tag.href} aAttributes={{ class: "underline" }}>
+            {tag.title}
           </LinkOrText>
         </PillBadge>
       </li>
