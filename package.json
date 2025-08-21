@@ -19,7 +19,7 @@
     "@fontsource/mulish": "^5.2.6",
     "@reunmedia/astro-normalize-trailing-slash": "^0.1.0",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.10.2",
+    "astro": "^5.13.2",
     "astro-icon": "^1.1.5",
     "date-fns": "^4.1.0",
     "es-toolkit": "^1.39.5",
