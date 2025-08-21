@@ -8,5 +8,3 @@ links:
   Website: https://code.visualstudio.com/
 usageStatus: inToolbox
 ---
-
-Here's my VS code setup and extensions I use...

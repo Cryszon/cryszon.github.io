@@ -8,5 +8,3 @@ links:
   Website: https://react.dev/
 usageStatus: storedAway
 ---
-
-I switched from React to Vue 2 back in the day because I liked it more.
