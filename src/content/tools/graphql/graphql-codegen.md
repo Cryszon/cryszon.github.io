@@ -2,7 +2,7 @@
 title: GraphQL Codegen
 icon:
 datePublished: 2025-07-30
-tags: [graphql]
+tags: [graphql, dx, devtools]
 links:
   GitHub: https://github.com/dotansimha/graphql-code-generator
   Website: https://the-guild.dev/graphql/codegen

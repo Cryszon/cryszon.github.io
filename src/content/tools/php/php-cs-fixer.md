@@ -2,7 +2,7 @@
 title: PHP CS Fixer
 icon:
 datePublished: 2025-08-08
-tags: [dx, code-quality]
+tags: [dx, code-quality, devtools]
 links:
   GitHub: https://github.com/PHP-CS-Fixer/PHP-CS-Fixer
   Website: https://cs.symfony.com/

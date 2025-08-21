@@ -2,7 +2,7 @@
 title: whoops
 icon:
 datePublished: 2025-08-08
-tags: [devtools]
+tags: [devtools, debugging]
 links:
   GitHub: https://github.com/filp/whoops
   Website: https://filp.github.io/whoops/

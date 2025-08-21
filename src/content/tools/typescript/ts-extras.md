@@ -2,7 +2,7 @@
 title: ts-extras
 icon:
 datePublished: 2025-07-30
-tags: [typescript]
+tags: [typescript, utilities]
 links:
   GitHub: https://github.com/sindresorhus/ts-extras
   Website:

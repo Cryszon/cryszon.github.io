@@ -2,7 +2,7 @@
 title: Twig
 icon:
 datePublished: 2025-08-07
-tags: [frontend]
+tags: [front-end]
 links:
   GitHub: https://github.com/twigphp/Twig
   Website: https://twig.symfony.com/

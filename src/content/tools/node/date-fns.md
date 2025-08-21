@@ -2,7 +2,7 @@
 title: date-fns
 icon:
 datePublished: 2025-07-30
-tags: [node-libraries]
+tags: [utilities]
 links:
   GitHub: https://github.com/date-fns/date-fns
   Website: https://date-fns.org/

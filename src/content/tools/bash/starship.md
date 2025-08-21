@@ -2,7 +2,7 @@
 title: Starship
 icon: simple-icons:starship
 datePublished: 2025-07-23
-tags: [bash, devtools]
+tags: [linux, bash, devtools, dx]
 links:
   GitHub: https://github.com/starship/starship
   Website: https://starship.rs/guide/

@@ -2,7 +2,7 @@
 title: EditorConfig
 icon: simple-icons:editorconfig
 datePublished: 2025-07-30
-tags: [devtools, code-quality]
+tags: [devtools, code-quality, dx]
 links:
   GitHub: https://github.com/editorconfig/
   Website: https://editorconfig.org/

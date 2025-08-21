@@ -2,7 +2,7 @@
 title: PSR-15 Middlewares
 icon:
 datePublished: 2025-08-08
-tags: [utility]
+tags: [utilities]
 links:
   GitHub: https://github.com/middlewares/psr15-middlewares
   Website:

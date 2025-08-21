@@ -2,7 +2,7 @@
 title: Bootstrap
 icon: simple-icons:bootstrap
 datePublished: 2025-07-17
-tags: ["front-end", "css"]
+tags: [css, framework, ui-ux]
 links:
   GitHub: https://github.com/twbs/bootstrap
   Website: https://getbootstrap.com/

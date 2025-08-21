@@ -2,7 +2,7 @@
 title: Headless UI
 icon: simple-icons:headlessui
 datePublished: 2025-07-31
-tags: [ui-library]
+tags: [ui-ux]
 links:
   GitHub: https://github.com/tailwindlabs/headlessui
   Website: https://headlessui.com/v1/vue

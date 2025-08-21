@@ -2,7 +2,7 @@
 title: PHP
 icon: simple-icons:php
 datePublished: 2025-07-22
-tags: [php, languages, backend]
+tags: [languages, back-end, server]
 links:
   GitHub: https://github.com/php/php-src
   Website: https://www.php.net/

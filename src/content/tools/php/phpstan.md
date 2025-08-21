@@ -2,7 +2,7 @@
 title: PHPStan
 icon:
 datePublished: 2025-08-08
-tags: [devtools, code-quality]
+tags: [devtools, code-quality, dx]
 links:
   GitHub: https://github.com/phpstan/phpstan
   Website: https://phpstan.org/

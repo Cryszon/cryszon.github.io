@@ -2,7 +2,7 @@
 title: composer-normalize
 icon:
 datePublished: 2025-08-08
-tags: [dx, devtools]
+tags: [devtools, code-quality]
 links:
   GitHub: https://github.com/ergebnis/composer-normalize
   Website: 

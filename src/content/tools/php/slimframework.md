@@ -2,7 +2,7 @@
 title: Slim Framework
 icon:
 datePublished: 2025-08-07
-tags: [framework]
+tags: [back-end, framework]
 links:
   GitHub: https://github.com/slimphp/Slim
   Website: https://www.slimframework.com/

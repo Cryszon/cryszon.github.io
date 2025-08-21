@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import ToolsGridItem from "../components/ToolsGridItem.astro";
-import { groupBy, sortBy } from "es-toolkit";
+import { countBy, flatten, flow, groupBy, sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import DividedHorizontalList from "../components/DividedHorizontalList.astro";
+import { toPairs } from "es-toolkit/compat";
 
 // TODO - Maybe sort manually instead of alphabetically?
 
@@ -103,5 +104,36 @@ const getNumberOfSubTools = (tool: Tool): number => {
         })}
       />
     </div>
+  </div>
+  <div class="prose-content">
+    <hr class="mt-16" />
+    <h2>Debug</h2>
+    <table class="border-separate border-spacing-2">
+      <tr>
+        <th>Tag</th>
+        <th>Count</th>
+      </tr>
+      {
+        // Need to use 2 flows, because maximum functions is 5 at once.
+        flow(
+          flow(
+            // Extract tags
+            (x: typeof allTools) => x.map((y) => y.data.tags),
+            (x) => flatten(x),
+            (x) => countBy(x, (y) => y),
+            (x) => toPairs(x),
+            (x) => sortBy(x, [([tag, count]) => count]),
+          ),
+          (x) => x.reverse(),
+          (x) =>
+            x.map(([tag, count]) => (
+              <tr>
+                <td>{tag}</td>
+                <td class="text-center">{count}</td>
+              </tr>
+            )),
+        )(allTools)
+      }
+    </table>
   </div>
 </DefaultPageLayout>

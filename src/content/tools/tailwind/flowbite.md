@@ -2,7 +2,7 @@
 title: Flowbite
 icon:
 datePublished: 2025-07-30
-tags: [tailwind, ui-library]
+tags: [ui-ux]
 links:
   GitHub: https://github.com/themesberg/flowbite
   Website: https://flowbite.com/

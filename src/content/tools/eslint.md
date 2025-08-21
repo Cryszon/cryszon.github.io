@@ -2,7 +2,7 @@
 title: ESLint
 icon: simple-icons:eslint
 datePublished: 2025-07-30
-tags: [devtools, code-quality]
+tags: [devtools, code-quality, dx]
 links:
   GitHub: https://github.com/eslint/eslint
   Website: https://eslint.org/

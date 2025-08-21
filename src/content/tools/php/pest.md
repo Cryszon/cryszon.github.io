@@ -2,7 +2,7 @@
 title: Pest
 icon:
 datePublished: 2025-08-08
-tags: [dx, code-quality, testing]
+tags: [devtools, code-quality, testing]
 links:
   GitHub: https://github.com/pestphp/pest
   Website: https://pestphp.com/

@@ -1,7 +1,7 @@
 ---
 title: Coolify
 datePublished: 2025-07-22
-tags: [backend, devops]
+tags: [back-end, devops]
 links:
   GitHub: https://github.com/coollabsio/coolify
   Website: https://coolify.io/

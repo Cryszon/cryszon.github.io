@@ -2,7 +2,7 @@
 title: Lodash
 icon: simple-icons:lodash
 datePublished: 2025-07-30
-tags: [utility]
+tags: [utilities]
 links:
   GitHub: https://github.com/lodash/lodash
   Website: https://lodash.com/

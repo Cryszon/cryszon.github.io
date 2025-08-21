@@ -2,7 +2,7 @@
 title: TypeScript
 icon: simple-icons:typescript
 datePublished: 2025-07-01
-tags: ["front-end", "frameworks"]
+tags: [front-end, back-end, languages]
 links:
   GitHub: https://github.com/microsoft/TypeScript
   Website: https://www.typescriptlang.org/

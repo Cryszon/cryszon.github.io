@@ -2,7 +2,7 @@
 title: GraphQL
 icon: simple-icons:graphql
 datePublished: 2025-07-17
-tags: ["technologies"]
+tags: [languages]
 links:
   GitHub: https://github.com/graphql
   Website: https://graphql.org/

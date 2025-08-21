@@ -2,7 +2,7 @@
 title: Tailwind CSS
 icon: simple-icons:tailwindcss
 datePublished: 2025-07-17
-tags: ["front-end", "css"]
+tags: [css, ui-ux, front-end, framework]
 links:
   GitHub: https://github.com/tailwindlabs/tailwindcss
   Website: https://tailwindcss.com/
