@@ -19,14 +19,14 @@ test("getToolLinks", () => {
     "Links should be sorted and contain respective icons",
   ).toEqual([
     {
-      name: "GitHub",
-      href: "https://github.com/Cryszon/cryszon.github.io",
-      icon: "simple-icons:github",
-    },
-    {
       name: "Website",
       href: "https://cryszon.github.io/",
       icon: "mynaui/globe",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/Cryszon/cryszon.github.io",
+      icon: "simple-icons:github",
     },
     {
       name: "Reun Media",
