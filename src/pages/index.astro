@@ -1,18 +1,71 @@
 ---
-import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
-import { render } from "astro:content";
-const indexContent = await getEntry("pageContent", "index");
+import PostsList from "../components/PostsList.astro";
 
-if (!indexContent) {
-  throw new Error("Could not find index page!");
-}
-
-const { Content } = await render(indexContent);
+const latestPosts = (await getCollection("posts"))
+  .sort(
+    (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime(),
+  )
+  .slice(0, 3);
 ---
 
 <DefaultPageLayout>
   <div class="prose-content">
-    <Content />
+    <h1>Cryszon's Website</h1>
+    <p>
+      Hi! I'm Kimmo Salmela, known online as <a
+        href="https://mastodon.social/@Cryszon">@Cryszon</a
+      > and this is my personal website where I share things that I find interesting.
+    </p>
+    <p>
+      I run an IT company called <a href="https://reun.eu/">Reun Media</a> and I'm
+      looking for remote freelance job opportunities in Europe. Check out
+      <a href="https://github.com/Cryszon">Cryszon</a> and <a
+        href="https://github.com/ReunMedia">Reun Media</a
+      > on GitHub to see what I've made.
+    </p>
+  </div>
+
+  <div class="mt-12 flex flex-col sm:flex-row gap-12">
+    <div class="flex-1/2">
+      <h2 slot="header" class="h2">Latest Posts</h2>
+      <div class="mt-4">
+        <PostsList class="mt-4" posts={latestPosts} />
+        <a class="block underline mt-4 ml-8" href="/posts/"
+          >Show more posts...</a
+        >
+      </div>
+    </div>
+    <div class="flex-1/2">
+      <h2 slot="header" class="h2">Tools</h2>
+      <div class="prose-content mt-4">
+        <p><a href="/tools/">Tools</a> I use to build things.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose-content mt-12">
+    <h2>My Socials</h2>
+    <ul>
+      <li>
+        <a rel="me" href="https://mastodon.social/@Cryszon">Mastodon</a>
+      </li>
+      <li><a href="https://github.com/Cryszon">GitHub</a></li>
+      <li>
+        <a href="https://www.linkedin.com/in/kimmo-salmela-073b9b359"
+          >LinkedIn</a
+        >
+      </li>
+      <li><a href="https://cryszon.itch.io/">itch.io</a></li>
+    </ul>
+    <h2>Frontend Snippets</h2>
+    <ul>
+      <li>
+        <a href="/frontend-snippets/tailwind-dropdown-navigation/"
+          >Pure Tailwind CSS dropdown navigation</a
+        >
+      </li>
+    </ul>
   </div>
 </DefaultPageLayout>

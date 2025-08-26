@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { normalizeTrailingSlash } from "@reunmedia/astro-normalize-trailing-slash";
+import { format } from "date-fns";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  class?: HTMLAttributes<"div">["class"];
+}
+
+const { posts, class: className = "" } = Astro.props;
+---
+
+<div class:list={[className, "prose-content"]}>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={normalizeTrailingSlash("/posts/" + post.id)}>
+            {post.data.title}
+          </a>
+          <small class="float-end leading-6">
+            <em>{format(post.data.datePublished, "yyyy-MM-dd")}</em>
+          </small>
+        </li>
+      ))
+    }
+  </ul>
+</div>

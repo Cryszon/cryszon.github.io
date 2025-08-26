@@ -7,13 +7,6 @@ const postsCollection = defineCollection({
   schema: postsSchema,
 });
 
-const pageContentCollection = defineCollection({
-  loader: glob({
-    pattern: "**/[^_]*.{md,mdx}",
-    base: "./src/content/pageContent",
-  }),
-});
-
 const tools = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/tools" }),
   schema: toolsSchema,
@@ -21,7 +14,6 @@ const tools = defineCollection({
 
 export const collections = {
   posts: postsCollection,
-  pageContent: pageContentCollection,
   tools,
 };
 export { toolsSchema };
