@@ -12,7 +12,7 @@ interface Props {
 const { title = "", class: className = "" } = Astro.props;
 ---
 
-<article class:list={[className, "border-2 p-4"]}>
+<article class:list={[className, "border-2 p-2 sm:p-4"]}>
   <header>
     <slot name="header">
       {title && <h2 class="text-4xl mb-4 text-theme-headings">{title}</h2>}
