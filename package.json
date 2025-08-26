@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "pnpm lint && astro build",
+    "build": "pnpm lint && pnpm test && astro build",
     "dev": "astro dev",
     "lint": "concurrently -p command \"npmPkgJsonLint .\" \"prettier . --check\" \"eslint\" \"astro check\"",
     "plop": "node --experimental-strip-types node_modules/plop/bin/plop.js --plopfile=plopfile.ts",
     "preview": "astro preview",
     "start": "astro dev",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
