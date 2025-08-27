@@ -12,15 +12,18 @@ interface Props {
 const { posts, class: className = "" } = Astro.props;
 ---
 
-<div class:list={[className, "prose-content"]}>
+<div class:list={[className]}>
   <ul>
     {
       posts.map((post) => (
-        <li>
-          <a href={normalizeTrailingSlash("/posts/" + post.id)}>
+        <li class="mt-2 flex items-center justify-between gap-2">
+          <a
+            class="underline"
+            href={normalizeTrailingSlash("/posts/" + post.id)}
+          >
             {post.data.title}
           </a>
-          <small class="float-end leading-6">
+          <small class="text-nowrap">
             <em>{format(post.data.datePublished, "yyyy-MM-dd")}</em>
           </small>
         </li>
