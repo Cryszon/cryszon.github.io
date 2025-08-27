@@ -2,12 +2,18 @@
 import { getCollection } from "astro:content";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import PostsList from "../components/PostsList.astro";
+import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
 
 const latestPosts = (await getCollection("posts"))
   .sort(
     (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime(),
   )
   .slice(0, 3);
+
+const builtWithIds = new Set(["astro", "tailwind", "typescript"]);
+const builtWithTools = await getCollection("tools", ({ id }) =>
+  builtWithIds.has(id),
+);
 ---
 
 <DefaultPageLayout>
@@ -32,15 +38,18 @@ const latestPosts = (await getCollection("posts"))
       <h2 slot="header" class="h2">Latest Posts</h2>
       <div class="mt-4">
         <PostsList class="mt-4" posts={latestPosts} />
-        <a class="block underline mt-4 ml-8" href="/posts/"
-          >Show more posts...</a
-        >
+        <a class="block underline mt-4" href="/posts/">Show more posts...</a>
       </div>
     </div>
     <div class="flex-1/2">
       <h2 slot="header" class="h2">Tools</h2>
       <div class="prose-content mt-4">
-        <p><a href="/tools/">Tools</a> I use to build things.</p>
+        <p>This website is primarily built with:</p>
+        <DividedHorizontalToolList tools={builtWithTools} />
+        <p>
+          Check out <a href="/tools/">tools page</a> to see more tools I use to build
+          things.
+        </p>
       </div>
     </div>
   </div>
