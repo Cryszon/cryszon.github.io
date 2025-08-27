@@ -4,7 +4,7 @@ import ToolsGridItem from "../components/ToolsGridItem.astro";
 import { groupBy, sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
-import DividedHorizontalList from "../components/DividedHorizontalList.astro";
+import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
 
 const allTools = sortBy(await getCollection("tools"), ["id"]);
 
@@ -65,18 +65,9 @@ const getNumberOfSubTools = (tool: Tool): number => {
             These are tools that are used in projects I maintain or that I
             occasionally reach for when need arises.
           </p>
-          <DividedHorizontalList
+          <DividedHorizontalToolList
             class="not-prose-content mt-8"
-            items={groupedTools.onTheShelf?.map((tool) => {
-              return {
-                name: tool.data.title,
-                icon: tool.data.icon ?? tool.data.defaultIcon,
-                href:
-                  tool.body || getNumberOfSubTools(tool)
-                    ? `/tools/${tool.id}/`
-                    : "",
-              };
-            })}
+            tools={groupedTools.onTheShelf}
           />
         </>
       )
@@ -89,18 +80,9 @@ const getNumberOfSubTools = (tool: Tool): number => {
         how far I and the industry have come. Maybe some of them will return to
         my toolbox in the future.
       </p>
-      <DividedHorizontalList
+      <DividedHorizontalToolList
         class="not-prose-content mt-8"
-        items={groupedTools.storedAway?.map((tool) => {
-          return {
-            name: tool.data.title,
-            icon: tool.data.icon ?? tool.data.defaultIcon,
-            href:
-              tool.body || getNumberOfSubTools(tool)
-                ? `/tools/${tool.id}/`
-                : "",
-          };
-        })}
+        tools={groupedTools.storedAway}
       />
     </div>
   </div>

@@ -10,10 +10,10 @@ import { getSubTools } from "../../utils/getSubTools";
 import SubToolCard from "../../components/SubToolCard.astro";
 import { getToolLinks } from "../../utils/getToolLinks";
 import { groupBy, sortBy } from "es-toolkit";
-import DividedHorizontalList from "../../components/DividedHorizontalList.astro";
 import { getToolArticles } from "../../utils/relatedContent";
 import { normalizeTrailingSlash } from "@reunmedia/astro-normalize-trailing-slash";
 import TagCollection from "../../components/TagCollection.astro";
+import DividedHorizontalToolList from "../../components/DividedHorizontalToolList.astro";
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
@@ -141,14 +141,9 @@ const relatedArticles = await getToolArticles(tool);
           {toolsNotInToolbox.length > 0 && (
             <>
               <h3 class="h3">I also sometimes use</h3>
-              <DividedHorizontalList
+              <DividedHorizontalToolList
                 class="mt-8"
-                items={toolsNotInToolbox.map((tool) => {
-                  return {
-                    name: tool.data.title,
-                    icon: tool.data.icon ?? tool.data.defaultIcon,
-                  };
-                })}
+                tools={toolsNotInToolbox}
               />
             </>
           )}

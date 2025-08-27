@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { CollectionEntry } from "astro:content";
+import DividedHorizontalList from "./DividedHorizontalList.astro";
+import { getSubTools } from "../utils/getSubTools";
+
+interface Props {
+  tools: Tool[];
+  class?: HTMLAttributes<"div">["class"];
+}
+
+type Tool = CollectionEntry<"tools">;
+
+const { tools, class: className = "" } = Astro.props;
+---
+
+<DividedHorizontalList
+  class={className}
+  items={await Promise.all(
+    tools.map(async (tool) => {
+      return {
+        name: tool.data.title,
+        icon: tool.data.icon ?? tool.data.defaultIcon,
+        // TODO - There's an opportunity for performance improvenet here
+        href:
+          tool.body || (await getSubTools(tool)).length > 0
+            ? `/tools/${tool.id}/`
+            : "",
+      };
+    }),
+  )}
+/>
