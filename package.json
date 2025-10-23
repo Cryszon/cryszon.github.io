@@ -10,9 +10,7 @@
     "lint": "concurrently -p command \"npmPkgJsonLint .\" \"prettier . --check\" \"eslint\" \"astro check\"",
     "plop": "bun node_modules/plop/bin/plop.js --plopfile=plopfile.ts",
     "preview": "astro preview",
-    "start": "astro dev",
-    "test": "vitest run",
-    "test:watch": "vitest watch"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -31,6 +29,7 @@
     "@iconify-json/heroicons": "^1.2.2",
     "@iconify-json/simple-icons": "^1.2.49",
     "@reunmedia/eslint-config": "^1.6.0",
+    "@types/bun": "^1.3.0",
     "concurrently": "^9.2.1",
     "eslint": "^9.34.0",
     "eslint-plugin-astro": "^1.3.1",
@@ -43,7 +42,6 @@
     "prettier-plugin-packagejson": "^2.5.19",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "type-fest": "^4.41.0",
-    "typescript-eslint": "^8.41.0",
-    "vitest": "^3.2.4"
+    "typescript-eslint": "^8.41.0"
   }
 }

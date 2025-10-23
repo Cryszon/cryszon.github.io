@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { getToolLinks } from "../src/utils/getToolLinks";
 
 type ToolDataLinks = CollectionEntry<"tools">["data"]["links"];
