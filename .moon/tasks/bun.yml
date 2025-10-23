@@ -1,0 +1,53 @@
+tasks:
+  format:
+    command:
+      - "prettier"
+      # Use the same config for the entire repo
+      - "--config"
+      - "@in(0)"
+      # Use .prettierignore...
+      - "--ignore-path"
+      - "@in(1)"
+      # ... and .gitignore
+      - "--ignore-path"
+      - "@in(2)"
+      # Fail for unformatted code
+      - "--check"
+      # Run in current dir
+      - "."
+    inputs:
+      # Use project-specific configs that extend root config
+      - "prettier.config.mjs"
+      # Use global .prettierignore and .gitignore
+      - "/.prettierignore"
+      - "/.gitignore"
+      # Config and other files
+      - "**/*.{md,mdx,yml,yaml,json,js,mjs,ts}"
+      - "@group(sources)"
+      - "@group(configs)"
+      - "@group(tests)"
+
+  eslint:
+    command: "eslint"
+    inputs:
+      - "@group(sources)"
+      - "@group(configs)"
+      - "@group(tests)"
+      - "**/eslint.config.mjs"
+      - "/eslint.config.mjs"
+
+  lint:
+    deps:
+      - eslint
+      - lintPkgJson
+      - format
+
+  test:
+    command: "bun test"
+    inputs:
+      - "@group(sources)"
+      - "@group(configs)"
+      - "@group(tests)"
+
+  dev:
+    command: "bun dev"

@@ -1,0 +1,31 @@
+tasks:
+  lint:
+    deps:
+      - typecheck
+      - eslint
+      - lintPkgJson
+      - format
+
+  typecheck:
+    command: "bun astro check"
+    inputs:
+      - "@group(sources)"
+      - "@group(configs)"
+
+  build:
+    command: "bun astro build"
+    inputs:
+      - "@group(sources)"
+      - "@group(configs)"
+    outputs:
+      - "dist/*"
+    deps:
+      - format
+      - lint
+      - test
+
+  dev:
+    command: "bun astro dev"
+
+  preview:
+    command: "bun astro preview"
