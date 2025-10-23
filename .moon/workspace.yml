@@ -9,3 +9,8 @@ projects:
 vcs:
   manager: "git"
   defaultBranch: "main"
+  hooks:
+    pre-commit:
+      - "bun moon :lint --affected --status=staged"
+    pre-merge:
+      - "bun moon :test"
