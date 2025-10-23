@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "pnpm lint && pnpm test && astro build",
+    "build": "bun lint && bun test && astro build",
     "dev": "astro dev",
     "lint": "concurrently -p command \"npmPkgJsonLint .\" \"prettier . --check\" \"eslint\" \"astro check\"",
-    "plop": "node --experimental-strip-types node_modules/plop/bin/plop.js --plopfile=plopfile.ts",
+    "plop": "bun node_modules/plop/bin/plop.js --plopfile=plopfile.ts",
     "preview": "astro preview",
     "start": "astro dev",
     "test": "vitest run",
@@ -45,6 +45,5 @@
     "type-fest": "^4.41.0",
     "typescript-eslint": "^8.41.0",
     "vitest": "^3.2.4"
-  },
-  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
+  }
 }

@@ -1,5 +1,5 @@
 pre-push:
   parallel: true
   jobs:
-    - run: pnpm lint
-    - run: pnpm test
+    - run: bun lint
+    - run: bun test

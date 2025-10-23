@@ -7,5 +7,5 @@ Repository for my personal website at [cryszon.github.io](https://cryszon.github
 ### Adding new tools
 
 ```sh
-pnpm plop tool
+bun plop tool
 ```
