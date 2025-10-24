@@ -139,7 +139,11 @@ const relatedArticles = await getToolArticles(tool);
           </ul>
           {minorTools.length > 0 && (
             <>
-              <h3 class="h3">I also sometimes use</h3>
+              {majorTools.length > 0 && (
+                // Only show this heading if there are major tools before this
+                // because it looks weird to have the two headings in a row.
+                <h3 class="h3">I also sometimes use</h3>
+              )}
               <DividedHorizontalToolList class="mt-8" tools={minorTools} />
             </>
           )}
