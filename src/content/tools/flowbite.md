@@ -1,0 +1,11 @@
+---
+title: Flowbite
+icon:
+datePublished: 2025-07-30
+tags: [ui-ux]
+links:
+  GitHub: https://github.com/themesberg/flowbite
+  Website: https://flowbite.com/
+usageStatus: inToolbox
+parentTool: tailwind
+---

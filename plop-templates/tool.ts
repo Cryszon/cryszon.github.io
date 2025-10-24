@@ -56,7 +56,7 @@ export default {
     actions: [
       {
         type: "add",
-        path: "src/content/tools/{{#if parentTool}}{{parentTool}}/{{/if}}{{kebabCase title}}.md",
+        path: "src/content/tools/{{kebabCase title}}.md",
         templateFile: "plop-templates/tool.hbs",
         data: {
           currentDate: new Date().toISOString().split("T")[0],

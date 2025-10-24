@@ -1,5 +1,13 @@
 import { z } from "astro/zod";
 
+// Use dynamic import for `reference()` with `z.string()` fallback so we can use
+// this schema in Plop template outside Astro.
+type AstroReference = typeof import("astro:content").reference;
+const reference: AstroReference = import.meta.env.MODE
+  ? (await import("astro:content")).reference
+  : // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (((_c: string) => z.string()) as unknown as AstroReference);
+
 export const postsSchema = z.object({
   title: z.string(),
   datePublished: z.date(),
@@ -16,6 +24,7 @@ export const toolsSchema = z.object({
    * Any installed icon supported by `astro-icon`
    */
   icon: z.string().nullable().optional(),
+  parentTool: reference("tools").nullable().optional(),
   usageStatus: z.enum(["inToolbox", "onTheShelf", "storedAway"]),
   /**
    * Links associated with this tool.

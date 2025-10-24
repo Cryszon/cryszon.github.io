@@ -6,27 +6,25 @@ import type { CollectionEntry } from "astro:content";
 import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
 import ToolsGridLarge from "../components/ToolsGridLarge.astro";
 
-const allTools = sortBy(await getCollection("tools"), ["id"]);
-
 type Tool = CollectionEntry<"tools">;
 
-const mainTools: Tool[] = [];
-const subToolsByParentId: Record<string, Tool[]> = {};
-
-// Split all tools into main and sub tools
-for (const tool of allTools) {
-  const [parentId, subId] = tool.id.split("/");
-  if (subId) {
-    if (!subToolsByParentId[parentId]) {
-      subToolsByParentId[parentId] = [];
-    }
-    subToolsByParentId[parentId].push(tool);
-  } else {
-    mainTools.push(tool);
+function mainToolsFilter(tool: Tool): Tool | undefined {
+  // Only tools that don't have a parent tool are displayed on tools page
+  if (!tool.data.parentTool) {
+    return tool;
   }
+  return undefined;
 }
 
-const groupedTools = groupBy(mainTools, (x) => x.data.usageStatus);
+/**
+ * Tools that are displayed on tools page.
+ */
+const mainTools = sortBy(
+  (await getCollection("tools", mainToolsFilter)) ?? [],
+  ["id"],
+);
+
+const groupedTools = groupBy(mainTools, ({ data }) => data.usageStatus);
 ---
 
 <DefaultPageLayout title="Tools">
