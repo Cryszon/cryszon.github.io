@@ -17,15 +17,10 @@ import DividedHorizontalToolList from "../../components/DividedHorizontalToolLis
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection("tools");
-  return (
-    tools
-      // Filter to only generate pages for main tools, not sub-tools
-      .filter((tool) => false === tool.id.includes("/"))
-      .map((tool) => ({
-        params: { id: tool.id },
-        props: { tool },
-      }))
-  );
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
 }) satisfies GetStaticPaths;
 
 const { tool } = Astro.props;
@@ -41,12 +36,16 @@ const infoBoxListItems: InfoBoxListItem[] = [...getToolLinks(tool.data.links)];
 
 //#region Sub-tools
 const subTools = sortBy(await getSubTools(tool), ["id"]);
-const { inToolbox: toolsInToolbox, ...otherSubTools } = groupBy(
+
+const { storedAway, onTheShelf, ...otherSubTools } = groupBy(
   subTools,
   (x) => x.data.usageStatus,
 );
-const toolsNotInToolbox = sortBy(
-  [...(otherSubTools.onTheShelf ?? []), ...(otherSubTools.storedAway ?? [])],
+
+const majorTools = sortBy(Object.values(otherSubTools).flat(), ["id"]);
+
+const minorTools = sortBy(
+  [...(onTheShelf ?? []), ...(storedAway ?? [])],
   ["id"],
 );
 //#endregion
@@ -134,17 +133,14 @@ const relatedArticles = await getToolArticles(tool);
         <>
           <h2 class="h2">Additional Tools for {tool.data.title}</h2>
           <ul class="space-y-8 mt-8">
-            {toolsInToolbox.map((subTool) => (
+            {majorTools.map((subTool) => (
               <SubToolCard tool={subTool} />
             ))}
           </ul>
-          {toolsNotInToolbox.length > 0 && (
+          {minorTools.length > 0 && (
             <>
               <h3 class="h3">I also sometimes use</h3>
-              <DividedHorizontalToolList
-                class="mt-8"
-                tools={toolsNotInToolbox}
-              />
+              <DividedHorizontalToolList class="mt-8" tools={minorTools} />
             </>
           )}
         </>
