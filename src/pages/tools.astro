@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { groupBy, sortBy } from "es-toolkit";
+import { groupBy, remove, sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
@@ -8,6 +8,8 @@ import ToolsGridLarge from "../components/ToolsGridLarge.astro";
 import { Icon } from "astro-icon/components";
 
 type Tool = CollectionEntry<"tools">;
+
+const allTools = await getCollection("tools");
 
 function mainToolsFilter(tool: Tool): Tool | undefined {
   // Only tools that don't have a parent tool are displayed on tools page
@@ -17,13 +19,14 @@ function mainToolsFilter(tool: Tool): Tool | undefined {
   return undefined;
 }
 
+const madeByMe = remove(allTools, ({ data }) =>
+  data.tags.includes("made-by-me"),
+);
+
 /**
  * Tools that are displayed on tools page.
  */
-const mainTools = sortBy(
-  (await getCollection("tools", mainToolsFilter)) ?? [],
-  ["id"],
-);
+const mainTools = sortBy(allTools.filter(mainToolsFilter) ?? [], ["id"]);
 
 const groupedTools = groupBy(mainTools, ({ data }) => data.usageStatus);
 ---
@@ -31,6 +34,18 @@ const groupedTools = groupBy(mainTools, ({ data }) => data.usageStatus);
 <DefaultPageLayout title="Tools">
   <div class="prose-content">
     <h1>Tools</h1>
+    <h2>I Made These</h2>
+    <p>
+      List of selected open source tools I've created or help maintain. You can
+      find all of them and more on <a href="https://github.com/ReunMedia"
+        >Reun Media GitHub profile.</a
+      >
+    </p>
+    <DividedHorizontalToolList
+      class="not-prose-contente mt-8"
+      tools={madeByMe}
+    />
+
     <h2>Current Toolkit</h2>
     <p>
       These are tools I actively use to build things. You can select some of

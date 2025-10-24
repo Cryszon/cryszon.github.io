@@ -2,7 +2,7 @@
 title: Astro OG Images
 icon:
 datePublished: 2025-08-07
-tags: [front-end, ui-ux]
+tags: [front-end, ui-ux, made-by-me]
 links:
   GitHub: https://github.com/ReunMedia/astro-og-images
   Website:

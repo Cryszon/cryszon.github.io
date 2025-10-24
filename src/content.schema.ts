@@ -19,6 +19,13 @@ export const toolsSchema = z.object({
   title: z.string(),
   datePublished: z.date(),
   dateUpdated: z.date().optional(),
+  /**
+   * List of tags for this tool.
+   *
+   * Special tags:
+   *
+   * - `made-by-me` - Displayed in a separate secion on tools page
+   */
   tags: z.array(z.string()).nonempty(),
   /**
    * Any installed icon supported by `astro-icon`
