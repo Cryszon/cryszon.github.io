@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import ToolsGridItem from "../components/ToolsGridItem.astro";
 import { groupBy, sortBy } from "es-toolkit";
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
+import ToolsGridLarge from "../components/ToolsGridLarge.astro";
 
 const allTools = sortBy(await getCollection("tools"), ["id"]);
 
@@ -27,13 +27,6 @@ for (const tool of allTools) {
 }
 
 const groupedTools = groupBy(mainTools, (x) => x.data.usageStatus);
-
-/**
- * Return the number of sub-tools for a specific tool
- */
-const getNumberOfSubTools = (tool: Tool): number => {
-  return subToolsByParentId[tool.id]?.length ?? 0;
-};
 ---
 
 <DefaultPageLayout title="Tools">
@@ -45,18 +38,7 @@ const getNumberOfSubTools = (tool: Tool): number => {
       them to see how I've configured them to my liking. Feel free to explore,
       copy and get inspired!
     </p>
-    <div
-      class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-x-4 gap-y-8 mt-16"
-    >
-      {
-        groupedTools.inToolbox?.map((tool) => (
-          <ToolsGridItem
-            tool={tool}
-            numberOfSubTools={getNumberOfSubTools(tool)}
-          />
-        ))
-      }
-    </div>
+    <ToolsGridLarge tools={groupedTools.inToolbox} />
     {
       groupedTools.onTheShelf?.length && (
         <>
