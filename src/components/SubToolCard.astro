@@ -16,7 +16,16 @@ const { tool } = Astro.props;
 const { Content } = await render(tool);
 ---
 
-<BaseCard class="flex items-center">
+<BaseCard class="flex items-center relative">
+  {
+    tool.data.favorite && (
+      <Icon
+        class="absolute top-2 right-2 w-6 h-6 text-theme-primary"
+        name="material-symbols/favorite-outline-rounded"
+      />
+    )
+  }
+
   <Icon
     name={tool.data.icon ?? tool.data.defaultIcon}
     class="object-cover h-auto min-w-16 hidden sm:block"
