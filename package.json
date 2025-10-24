@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
+    "build": "bun moon root:build",
     "plop": "bun node_modules/plop/bin/plop.js --plopfile=plopfile.ts"
   },
   "dependencies": {
