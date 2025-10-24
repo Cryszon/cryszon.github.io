@@ -8,4 +8,5 @@ links:
   Website: https://buggregator.dev/
 usageStatus: inToolbox
 parentTool: php
+favorite: true
 ---

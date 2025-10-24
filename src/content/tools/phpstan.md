@@ -8,6 +8,7 @@ links:
   Website: https://phpstan.org/
 usageStatus: inToolbox
 parentTool: php
+favorite: true
 ---
 
 I use

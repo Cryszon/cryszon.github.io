@@ -7,4 +7,5 @@ links:
   GitHub: https://github.com/prettier/prettier
   Website: https://prettier.io/
 usageStatus: inToolbox
+favorite: true
 ---

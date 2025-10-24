@@ -26,6 +26,7 @@ export const toolsSchema = z.object({
   icon: z.string().nullable().optional(),
   parentTool: reference("tools").nullable().optional(),
   usageStatus: z.enum(["inToolbox", "onTheShelf", "storedAway"]),
+  favorite: z.boolean().default(false),
   /**
    * Links associated with this tool.
    *

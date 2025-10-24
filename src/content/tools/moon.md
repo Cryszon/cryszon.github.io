@@ -7,4 +7,5 @@ links:
   GitHub: https://github.com/moonrepo/moon
   Website: https://moonrepo.dev/moon
 usageStatus: inToolbox
+favorite: true
 ---

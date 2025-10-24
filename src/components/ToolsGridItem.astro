@@ -17,14 +17,17 @@ const { tool, numberOfSubTools = 0 } = Astro.props;
     class="relative"
     href={tool.body || numberOfSubTools ? `/tools/${tool.id}/` : ""}
   >
-    {
-      numberOfSubTools > 0 && (
-        <PillBadge
-          class="absolute top-0 right-0 -translate-y-1/2"
-          text={`+ ${numberOfSubTools}`}
-        />
-      )
-    }
+    <div class="flex absolute -top-3 right-0 items-center gap-1">
+      {numberOfSubTools > 0 && <PillBadge text={`+ ${numberOfSubTools}`} />}
+      {
+        tool.data.favorite && (
+          <Icon
+            class="w-6 h-6 text-theme-primary"
+            name="material-symbols/favorite-outline-rounded"
+          />
+        )
+      }
+    </div>
     <Icon
       class="mx-auto h-full w-full max-w-16 max-h-16"
       name={tool.data.icon ?? tool.data.defaultIcon}

@@ -8,4 +8,5 @@ links:
   Website: https://junegunn.github.io/fzf/
 usageStatus: inToolbox
 parentTool: bash
+favorite: true
 ---

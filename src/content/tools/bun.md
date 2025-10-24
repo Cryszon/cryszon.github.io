@@ -7,4 +7,5 @@ links:
   GitHub: https://github.com/oven-sh/bun
   Website: https://bun.sh/
 usageStatus: inToolbox
+favorite: true
 ---

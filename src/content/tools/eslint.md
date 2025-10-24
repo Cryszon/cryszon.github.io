@@ -7,6 +7,7 @@ links:
   GitHub: https://github.com/eslint/eslint
   Website: https://eslint.org/
 usageStatus: inToolbox
+favorite: true
 ---
 
 I use ESLint along with [Prettier](/tools/prettier/) to enforce consistent

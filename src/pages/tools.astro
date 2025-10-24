@@ -5,12 +5,13 @@ import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import DividedHorizontalToolList from "../components/DividedHorizontalToolList.astro";
 import ToolsGridLarge from "../components/ToolsGridLarge.astro";
+import { Icon } from "astro-icon/components";
 
 type Tool = CollectionEntry<"tools">;
 
 function mainToolsFilter(tool: Tool): Tool | undefined {
   // Only tools that don't have a parent tool are displayed on tools page
-  if (!tool.data.parentTool) {
+  if (!tool.data.parentTool || tool.data.favorite) {
     return tool;
   }
   return undefined;
@@ -33,9 +34,13 @@ const groupedTools = groupBy(mainTools, ({ data }) => data.usageStatus);
     <h2>Current Toolkit</h2>
     <p>
       These are tools I actively use to build things. You can select some of
-      them to see how I've configured them to my liking. Feel free to explore,
-      copy and get inspired!
+      them to see how I've configured them to my liking. Tools marked with <Icon
+        class="inline text-theme-primary"
+        name="material-symbols/favorite-outline-rounded"
+      /> are ones I especially like or are essential to my work and I highly recommmend
+      checking them out.
     </p>
+    <p>Feel free to explore, copy and get inspired!</p>
     <ToolsGridLarge tools={groupedTools.inToolbox} />
     {
       groupedTools.onTheShelf?.length && (
