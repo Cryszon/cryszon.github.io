@@ -5,8 +5,7 @@ import { z } from "astro/zod";
 type AstroReference = typeof import("astro:content").reference;
 const reference: AstroReference = import.meta.env.MODE
   ? (await import("astro:content")).reference
-  : // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    (((_c: string) => z.string()) as unknown as AstroReference);
+  : (((_c: string) => z.string()) as unknown as AstroReference);
 
 export const postsSchema = z.object({
   title: z.string(),

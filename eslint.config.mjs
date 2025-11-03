@@ -1,5 +1,5 @@
 // @ts-check
-import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config";
 import createReunMediaConfig from "@reunmedia/eslint-config";
 
-export default tseslint.config(await createReunMediaConfig(import.meta.url));
+export default defineConfig(await createReunMediaConfig(import.meta.url));
