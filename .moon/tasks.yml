@@ -22,7 +22,7 @@ tasks:
       - test
 
   lintPkgJson:
-    command: "npmPkgJsonLint ."
+    command: "bun run npmPkgJsonLint ."
     inputs:
       - "**/package.json"
       - "/package.json"
