@@ -1,5 +1,6 @@
 ---
 title: Coolify
+icon: simple-icons:coolify
 datePublished: 2025-07-22
 tags: [back-end, devops]
 links:
